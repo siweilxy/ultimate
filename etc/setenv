@@ -1,0 +1,4 @@
+basepath=$(cd `dirname $0`;pwd)
+echo $basepath
+export filePath=${basepath}/work.prj
+export PATH=$PATH:/home/siwei/github/ultimate/bin
