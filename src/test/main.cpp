@@ -1,7 +1,8 @@
 #include <iostream>
+#include "log.h"
 
 int main()
 {
-    std::cout << "start" << std::endl;
+    log_init();
     return 0;
 }

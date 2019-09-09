@@ -9,7 +9,7 @@
 #define INCLUDE_LOG_H_
 
 
-
+int log_init();
 
 
 #endif /* INCLUDE_LOG_H_ */
