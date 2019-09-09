@@ -4,7 +4,7 @@ project(ultimate)
 SET(EXECUTABLE_OUTPUT_PATH $ENV{HOME}/github/ultimate/bin)
 SET(LIBRARY_OUTPUT_PATH $ENV{HOME}/github/ultimate/lib)
 
-add_subdirectory(./src/log)
+add_subdirectory(src)
 
 
 
