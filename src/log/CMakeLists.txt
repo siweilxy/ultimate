@@ -22,7 +22,7 @@ FILE(GLOB_RECURSE all_files
         )
 
 source_group(all_files)
-include_directories($ENV{HOME}/github/ultimate/include)
+include_directories($ENV{HOME}/github/ultimate/include/log)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 add_library(log SHARED ${all_files})
 target_link_libraries(log  pthread)
