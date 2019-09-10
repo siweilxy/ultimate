@@ -4,8 +4,10 @@
 int main()
 {
     log_init();
-    f("%s%s", "good", "boy");
-    LOG("%s%s%d%d","good","boy",1,2);
+
+    DEBUG("%s%s%d%d", "good", "boy", 1, 2);
+    ERROR("%s", "error");
+    WARN("%s", "warn");
 
     return 0;
 }
