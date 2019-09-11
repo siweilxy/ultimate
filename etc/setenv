@@ -1,4 +1,5 @@
 basepath=$(cd `dirname $0`;pwd)
 echo $basepath
-export filePath=${basepath}/work.prj
+export filePath=${basepath}/work.cfg
 export PATH=$PATH:/home/siwei/github/ultimate/bin
+export cfg_path=/home/siwei/github/ultimate/etc/work.ubb
