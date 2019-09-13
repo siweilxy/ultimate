@@ -1,7 +1,13 @@
 {
+        "workerNo":3,
 	"worker": 
         [{
 		"file": "bus",
 		"number": "1"
-	}]
+	},
+         {      "file":"slave",
+                "number":"1"
+       },{      "file":"test1",
+                "number":"1"
+         }]
 }

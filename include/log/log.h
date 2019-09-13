@@ -11,6 +11,8 @@
 #include <string>
 #include <stdarg.h>
 #include <stdio.h>
+#include <unistd.h>
+
 int log_init();
 
 #define NONE                 "\e[0m"
@@ -44,7 +46,7 @@ int log_init();
 {                                               \
     time_t t = time(NULL);          \
     struct tm ttt = *localtime(&t);\
-    printf("[" __FILE__ "][%4d-%02d-%02d %02d:%02d:%02d][%s:%d] " format "\n",                     \
+    printf("[DEBUG]" "[" __FILE__ "][%d:%4d-%02d-%02d %02d:%02d:%02d][%s:%d] " format "\n",getpid(),                     \
             ttt.tm_year + 1900, ttt.tm_mon + 1, ttt.tm_mday, ttt.tm_hour,        \
             ttt.tm_min, ttt.tm_sec, __FUNCTION__ ,  __LINE__, ##__VA_ARGS__);                            \
 }
@@ -53,7 +55,7 @@ int log_init();
 {                                               \
     time_t t = time(NULL);          \
     struct tm ttt = *localtime(&t);\
-    printf(YELLOW "[" __FILE__ "][%4d-%02d-%02d %02d:%02d:%02d][%s:%d] " format "\n" NONE,                     \
+    printf(YELLOW "[WARN]" "[" __FILE__ "][%d:%4d-%02d-%02d %02d:%02d:%02d][%s:%d] " format "\n" NONE,getpid(),                     \
             ttt.tm_year + 1900, ttt.tm_mon + 1, ttt.tm_mday, ttt.tm_hour,        \
             ttt.tm_min, ttt.tm_sec, __FUNCTION__ ,  __LINE__, ##__VA_ARGS__);                            \
 }
@@ -62,7 +64,7 @@ int log_init();
 {                                               \
     time_t t = time(NULL);          \
     struct tm ttt = *localtime(&t);\
-    printf(RED "[" __FILE__ "][%4d-%02d-%02d %02d:%02d:%02d][%s:%d] " format "\n" NONE,                     \
+    printf(RED "[ERROR]" "[" __FILE__ "][%d:%4d-%02d-%02d %02d:%02d:%02d][%s:%d] " format "\n" NONE,getpid(),                     \
             ttt.tm_year + 1900, ttt.tm_mon + 1, ttt.tm_mday, ttt.tm_hour,        \
             ttt.tm_min, ttt.tm_sec, __FUNCTION__ ,  __LINE__, ##__VA_ARGS__);                            \
 }

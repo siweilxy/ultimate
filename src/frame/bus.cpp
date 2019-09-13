@@ -10,5 +10,10 @@
 int main()
 {
     DEBUG("bus启动");
+    while (1)
+    {
+        sleep(1);
+        break;
+    }
     return 0;
 }

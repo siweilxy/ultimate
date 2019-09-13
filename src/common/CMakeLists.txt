@@ -23,13 +23,7 @@ FILE(GLOB_RECURSE all_files
 
 source_group(all_files)
 include_directories($ENV{HOME}/github/ultimate/include/log)
-include_directories($ENV{HOME}/github/ultimate/include/)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-add_executable(bus bus.cpp)
-add_executable(slave slave.cpp)
-add_executable(entry entry.cpp)
-add_executable(tools tools.cpp)
-target_link_libraries(bus log common)
-target_link_libraries(slave log common)
-target_link_libraries(entry log common)
-target_link_libraries(tools log common)
+add_library(common SHARED ${all_files})
+target_link_libraries(common  log)
+

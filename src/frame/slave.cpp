@@ -5,13 +5,15 @@
  *      Author: siwei
  */
 
-
-
-
 #include "log.h"
 
 int main()
 {
     DEBUG("slave启动");
+    while (1)
+    {
+        sleep(1);
+        break;
+    }
     return 0;
 }
