@@ -1,4 +1,4 @@
-basepath=$(cd `dirname $0`;pwd)
+basepath=$(pwd)
 echo $basepath
 export filePath=${basepath}/work.cfg
 export PATH=$PATH:/home/siwei/github/ultimate/bin
