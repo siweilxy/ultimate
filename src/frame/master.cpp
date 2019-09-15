@@ -225,27 +225,33 @@ int main()
                 } else
                 {
                     printf("收到消息:%s\n",buf);
-                    if(strcmp(buf,"end") == 0)
+                    if(strcmp(buf,"END") == 0)
                     {
                         button = 1;
-                        DEBUG("程序退出");
+                        ERROR("程序退出");
                         break;
                     }else if (strcmp(buf,"DEBUG") == 0)
                     {
-                        DEBUG("DEBUG");
                         level = 0;
+                        DEBUG("DEBUG");
                         break;
                     }else if(strcmp(buf,"WARN") == 0)
                     {
-                        DEBUG("WARN");
-                        level = 1;
+                        level = 2;
+                        WARN("WARN");
                         break;
                     }else if(strcmp(buf,"ERROR") == 0)
                     {
-                        DEBUG("ERROR");
-                        level = 2;
+                        level = 3;
+                        ERROR("ERROR");
                         break;
-                    }else
+                    }else if(strcmp(buf,"INFO") == 0)
+                    {
+                        level = 1;
+                        INFO("INFO");
+                        break;
+                    }
+                    else
                     {
                         ERROR("错误消息");
                     }
