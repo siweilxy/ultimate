@@ -1,5 +1,5 @@
 /*
- * entry.cpp
+ * master.cpp
  *
  *  Created on: Sep 10, 2019
  *      Author: siwei
@@ -19,6 +19,8 @@
 #include <sys/socket.h>
 #include <sys/epoll.h>
 #include <wait.h>
+#include <pthread.h>
+#include <signal.h>
 #include "json.hpp"
 #include "common.h"
 #include "log.h"
@@ -27,11 +29,40 @@ using json = nlohmann::json;
 typedef struct fd_s
 {
     int fd;
+    std::string file;
 } fd_t;
 
 std::map<pid_t, fd_t> pids;
+int fd = 0;
+
 char* cfgPath = nullptr;
 char* binPath = nullptr;
+pthread_t scanThread_t;
+static pthread_mutex_t scanMutex = PTHREAD_MUTEX_INITIALIZER;
+void * scanThread(void* param)
+{
+    int status = 0;
+    while(1)
+    {
+        sleep(4);
+        pthread_mutex_lock(&scanMutex);
+        for(auto pid:pids)
+        {
+            int ret = kill(pid.first,0);
+            if(ret ==-1)
+            {
+                ERROR("kill %d ret is %d,errno is %d:%s",pid.first,ret,errno,strerror(errno));
+                pids.erase(pid.first);
+            }else
+            {
+                ret = waitpid(pid.first,&status,WNOHANG);
+                DEBUG("file is %s pid is %d,ret is %d,status is %d",pid.second.file.c_str(), pid.first,ret,status);
+            }
+        }
+        pthread_mutex_unlock(&scanMutex);
+    }
+    return nullptr;
+}
 
 int runWorker(std::string file, std::string number)
 {
@@ -43,7 +74,7 @@ int runWorker(std::string file, std::string number)
     {
         ERROR("execl 失败,errno 为 %s,file 为 %s", strerror(errno),
                 total_file.c_str());
-        exit(-1);
+        exit(0);
     }
     return 0;
 }
@@ -52,7 +83,6 @@ int runWorkers(json j)
 {
     auto workers = j["worker"];
     auto number = j["workerNo"];
-    int status = 0;
     int ret =0;
     pid_t pid = 0;
     for (int i = 0; i < number; i++)
@@ -65,18 +95,15 @@ int runWorkers(json j)
         if (pid == 0)
         {
             runWorker(file, number);
+            exit(0);
         } else
         {
-            pids[pid]=
-            {   0};
+            pids[pid]={0,file};
         }
     }
 
-    for (auto pid : pids)
-    {
-        ret = waitpid(pid.first,&status,0);
-        DEBUG("pid is %d,ret is %d,status is %d", pid.first,ret,status);
-    }
+    pthread_create(&scanThread_t,nullptr,scanThread,nullptr);
+
     DEBUG("worker 启动成功");
     return 0;
 }
@@ -102,11 +129,35 @@ int initParams()
     return 0;
 }
 
+void cleanSource()
+{
+    DEBUG("%s 开始",__FUNCTION__);
+    int status = 0;
+    pthread_mutex_lock(&scanMutex);
+    for(auto pid:pids)
+    {
+        int ret = kill(pid.first,9);
+        if(ret ==-1)
+        {
+            ERROR("kill %d ret is %d,errno is %d:%s",pid.first,ret,errno,strerror(errno));
+        }else
+        {
+
+            ret = waitpid(pid.first,&status,0);
+            DEBUG("file is %s pid is %d,ret is %d,status is %d",pid.second.file.c_str(), pid.first,ret,status);
+        }
+    }
+    pthread_mutex_unlock(&scanMutex);
+
+    close(fd);
+    unlink(FIFO_NAME); //删除管道文件
+    DEBUG("%s 结束",__FUNCTION__);
+}
+
 int main()
 {
     std::string result;
     int ret = 0;
-    int fd = 0;
     int len = 0;
     int size = 0;
     int status = 0;
@@ -135,9 +186,6 @@ int main()
     json j = json::parse(result);
     ret = runWorkers(j);
     DEBUG("启动成功");
-
-//    mkfifo(FIFO_NAME, S_IFIFO | 0666);
-//    fd = open(FIFO_NAME, O_RDWR);
 
     U::pipe p(FIFO_NAME);
     fd = p.getFd();
@@ -182,14 +230,30 @@ int main()
                         button = 1;
                         DEBUG("程序退出");
                         break;
+                    }else if (strcmp(buf,"DEBUG") == 0)
+                    {
+                        DEBUG("DEBUG");
+                        level = 0;
+                        break;
+                    }else if(strcmp(buf,"WARN") == 0)
+                    {
+                        DEBUG("WARN");
+                        level = 1;
+                        break;
+                    }else if(strcmp(buf,"ERROR") == 0)
+                    {
+                        DEBUG("ERROR");
+                        level = 2;
+                        break;
+                    }else
+                    {
+                        ERROR("错误消息");
                     }
                 }
             }
         }
     }
 
-    close(fd);
-    unlink(FIFO_NAME); //删除管道文件
-
+    cleanSource();
     return 0;
 }
