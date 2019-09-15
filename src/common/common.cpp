@@ -51,9 +51,9 @@ pipe::~pipe()
     DEBUG("%s pipe end success", fifo.c_str());
 }
 
-int pipe::senMsg(std::string msg)
+int pipe::senMsg(char* buf,int length)
 {
-    int len = write(fd, msg.c_str(), msg.size());
+    int len = write(fd, buf, length);
     if (len < 0)
     {
         ERROR("write error,errno is %s", strerror(errno));

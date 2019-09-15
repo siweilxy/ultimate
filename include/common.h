@@ -17,6 +17,29 @@
 
 #define FIFO_NAME "entry"
 
+typedef struct fd_s
+{
+    int fd;
+    std::string file;
+} fd_t;
+
+enum msgType
+{
+  ul_log = 0,
+  ul_end,
+  ul_other
+};
+
+typedef struct internal_msg_s
+{
+    char srcName[512];
+    char destName[512];
+    char msg[512];
+    char reslut[512];
+    char masterIp[512];
+    msgType type;
+}internal_msg_t;
+
 int getfile(const std::string& path, std::string& result)
 {
     char buffer[256];
@@ -46,7 +69,7 @@ private:
 public:
     pipe(std::string fifoName);
     ~pipe();
-    int senMsg(std::string msg);
+    int senMsg(char* buf,int length);
     int recvMsg(char* buff,int len);
     int getFd();
 };

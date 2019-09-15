@@ -26,37 +26,35 @@
 #include "log.h"
 using json = nlohmann::json;
 
-typedef struct fd_s
-{
-    int fd;
-    std::string file;
-} fd_t;
-
 std::map<pid_t, fd_t> pids;
 int fd = 0;
 
 char* cfgPath = nullptr;
 char* binPath = nullptr;
 pthread_t scanThread_t;
+int button = 0;
+
 static pthread_mutex_t scanMutex = PTHREAD_MUTEX_INITIALIZER;
 void * scanThread(void* param)
 {
     int status = 0;
-    while(1)
+    while (1)
     {
         sleep(4);
         pthread_mutex_lock(&scanMutex);
-        for(auto pid:pids)
+        for (auto pid : pids)
         {
-            int ret = kill(pid.first,0);
-            if(ret ==-1)
+            int ret = kill(pid.first, 0);
+            if (ret == -1)
             {
-                ERROR("kill %d ret is %d,errno is %d:%s",pid.first,ret,errno,strerror(errno));
+                ERROR("kill %d ret is %d,errno is %d:%s", pid.first, ret, errno,
+                        strerror(errno));
                 pids.erase(pid.first);
-            }else
+            } else
             {
-                ret = waitpid(pid.first,&status,WNOHANG);
-                DEBUG("file is %s pid is %d,ret is %d,status is %d",pid.second.file.c_str(), pid.first,ret,status);
+                ret = waitpid(pid.first, &status, WNOHANG);
+                DEBUG("file is %s pid is %d,ret is %d,status is %d",
+                        pid.second.file.c_str(), pid.first, ret, status);
             }
         }
         pthread_mutex_unlock(&scanMutex);
@@ -83,7 +81,7 @@ int runWorkers(json j)
 {
     auto workers = j["worker"];
     auto number = j["workerNo"];
-    int ret =0;
+    int ret = 0;
     pid_t pid = 0;
     for (int i = 0; i < number; i++)
     {
@@ -98,11 +96,12 @@ int runWorkers(json j)
             exit(0);
         } else
         {
-            pids[pid]={0,file};
+            pids[pid]=
+            {   0,file};
         }
     }
 
-    pthread_create(&scanThread_t,nullptr,scanThread,nullptr);
+    pthread_create(&scanThread_t, nullptr, scanThread, nullptr);
 
     DEBUG("worker 启动成功");
     return 0;
@@ -131,27 +130,55 @@ int initParams()
 
 void cleanSource()
 {
-    DEBUG("%s 开始",__FUNCTION__);
+    DEBUG("%s 开始", __FUNCTION__);
     int status = 0;
     pthread_mutex_lock(&scanMutex);
-    for(auto pid:pids)
+    for (auto pid : pids)
     {
-        int ret = kill(pid.first,9);
-        if(ret ==-1)
+        int ret = kill(pid.first, 9);
+        if (ret == -1)
         {
-            ERROR("kill %d ret is %d,errno is %d:%s",pid.first,ret,errno,strerror(errno));
-        }else
+            ERROR("kill %d ret is %d,errno is %d:%s", pid.first, ret, errno,
+                    strerror(errno));
+        } else
         {
 
-            ret = waitpid(pid.first,&status,0);
-            DEBUG("file is %s pid is %d,ret is %d,status is %d",pid.second.file.c_str(), pid.first,ret,status);
+            ret = waitpid(pid.first, &status, 0);
+            DEBUG("file is %s pid is %d,ret is %d,status is %d",
+                    pid.second.file.c_str(), pid.first, ret, status);
         }
     }
     pthread_mutex_unlock(&scanMutex);
 
     close(fd);
     unlink(FIFO_NAME); //删除管道文件
-    DEBUG("%s 结束",__FUNCTION__);
+    DEBUG("%s 结束", __FUNCTION__);
+}
+
+int setLog(internal_msg_t* msg)
+{
+    if (strcmp(msg->msg, "DEBUG") == 0)
+    {
+        level = 0;
+        DEBUG("DEBUG");
+    } else if (strcmp(msg->msg, "WARN") == 0)
+    {
+        level = 2;
+        WARN("WARN");
+    } else if (strcmp(msg->msg, "ERROR") == 0)
+    {
+        level = 3;
+        ERROR("ERROR");
+    } else if (strcmp(msg->msg, "INFO") == 0)
+    {
+        level = 1;
+        INFO("INFO");
+    } else
+    {
+        ERROR("错误消息:%s", msg->msg);
+        return -1;
+    }
+    return 0;
 }
 
 int main()
@@ -161,12 +188,12 @@ int main()
     int len = 0;
     int size = 0;
     int status = 0;
-    int button = 0;
     int epfd, event_cnt;
     struct epoll_event* ep_events;
     struct epoll_event event;
-    char buf[512]={0};
-
+    char buf[10240] =
+    { 0 };
+    internal_msg_t* msg;
     ret = initParams();
     if (ret != 0)
     {
@@ -207,11 +234,10 @@ int main()
 
         for (int i = 0; i < event_cnt; i++)
         {
-            while (1)
+            while (button == 0)
             {
                 memset(buf, 0, sizeof(buf));
-                len = read(ep_events[i].data.fd, buf, 512);
-//                len = p.recvMsg(buf,512);
+                len = read(ep_events[i].data.fd, buf, sizeof(buf));
                 if (len == 0)
                 {
                     printf("len == 0!!!!!!!!!!\n");
@@ -224,37 +250,31 @@ int main()
                     }
                 } else
                 {
-                    printf("收到消息:%s\n",buf);
-                    if(strcmp(buf,"END") == 0)
+                    printf("收到消息:%s 长度:%d\n", buf, len);
+                    msg = (internal_msg_t*) buf;
+                    switch (msg->type)
+                    {
+                    case ul_log:
+                    {
+                        ret = setLog(msg);
+                        if (ret != 0)
+                        {
+                            ERROR("log set error");
+                        }
+                        break;
+                    }
+                    case ul_end:
                     {
                         button = 1;
                         ERROR("程序退出");
                         break;
-                    }else if (strcmp(buf,"DEBUG") == 0)
-                    {
-                        level = 0;
-                        DEBUG("DEBUG");
-                        break;
-                    }else if(strcmp(buf,"WARN") == 0)
-                    {
-                        level = 2;
-                        WARN("WARN");
-                        break;
-                    }else if(strcmp(buf,"ERROR") == 0)
-                    {
-                        level = 3;
-                        ERROR("ERROR");
-                        break;
-                    }else if(strcmp(buf,"INFO") == 0)
-                    {
-                        level = 1;
-                        INFO("INFO");
-                        break;
                     }
-                    else
+                    default:
                     {
-                        ERROR("错误消息");
+                        ERROR("error msg type:%d", msg->type);
                     }
+                    }
+
                 }
             }
         }
