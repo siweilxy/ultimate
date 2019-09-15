@@ -5,15 +5,26 @@
  *      Author: siwei
  */
 
-#include "log.h"
+#include "worker.h"
+#include "common.h"
+
+extern int level;
+
+void bus()
+{
+    while (1)
+    {
+        sleep(1);
+        DEBUG("bus 运行中");
+        //break;
+    }
+}
 
 int main()
 {
     DEBUG("bus启动");
-    while (1)
-    {
-        sleep(1);
-        //break;
-    }
+    processFunc f = bus;
+    worker w(f,f,f);
+
     return 0;
 }

@@ -14,6 +14,26 @@
 #include <string>
 #include <sys/stat.h>
 
+extern int level;
+
+int getfile(const std::string& path, std::string& result)
+{
+    char buffer[256];
+    std::ifstream in(path);
+    if (!in.is_open())
+    {
+        ERROR("Error opening file");
+        return -1;
+    }
+    while (!in.eof())
+    {
+        in.getline(buffer, 10000);
+        result = result + buffer;
+    }
+    DEBUG("result is %s", result.c_str());
+    return 0;
+}
+
 namespace U
 {
 pipe::pipe(std::string fifoName)

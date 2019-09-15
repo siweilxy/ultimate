@@ -29,6 +29,8 @@ using json = nlohmann::json;
 std::map<pid_t, fd_t> pids;
 int fd = 0;
 
+extern int level;
+
 char* cfgPath = nullptr;
 char* binPath = nullptr;
 pthread_t scanThread_t;
@@ -155,32 +157,6 @@ void cleanSource()
     DEBUG("%s 结束", __FUNCTION__);
 }
 
-int setLog(internal_msg_t* msg)
-{
-    if (strcmp(msg->msg, "DEBUG") == 0)
-    {
-        level = 0;
-        DEBUG("DEBUG");
-    } else if (strcmp(msg->msg, "WARN") == 0)
-    {
-        level = 2;
-        WARN("WARN");
-    } else if (strcmp(msg->msg, "ERROR") == 0)
-    {
-        level = 3;
-        ERROR("ERROR");
-    } else if (strcmp(msg->msg, "INFO") == 0)
-    {
-        level = 1;
-        INFO("INFO");
-    } else
-    {
-        ERROR("错误消息:%s", msg->msg);
-        return -1;
-    }
-    return 0;
-}
-
 int main()
 {
     std::string result;
@@ -256,7 +232,7 @@ int main()
                     {
                     case ul_log:
                     {
-                        ret = setLog(msg);
+                        ret = setLog(msg->msg);
                         if (ret != 0)
                         {
                             ERROR("log set error");

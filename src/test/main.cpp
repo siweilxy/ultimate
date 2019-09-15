@@ -2,6 +2,8 @@
 #include "log.h"
 #include <pthread.h>
 
+extern int level;
+
 void* test(void*)
 {
     while (1)

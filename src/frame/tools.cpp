@@ -13,6 +13,8 @@
 #include <errno.h>
 #include <stdlib.h>
 
+extern int level;
+
 int main(int argc, char* argv[])
 {
     for (int i = 0; i < argc; i++)

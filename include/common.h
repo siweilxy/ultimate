@@ -7,7 +7,6 @@
 
 #ifndef INCLUDE_COMMON_H_
 #define INCLUDE_COMMON_H_
-
 #include <stdio.h>
 #include "log.h"
 #include <stdlib.h>
@@ -40,23 +39,13 @@ typedef struct internal_msg_s
     msgType type;
 }internal_msg_t;
 
-int getfile(const std::string& path, std::string& result)
-{
-    char buffer[256];
-    std::ifstream in(path);
-    if (!in.is_open())
-    {
-        ERROR("Error opening file");
-        return -1;
-    }
-    while (!in.eof())
-    {
-        in.getline(buffer, 10000);
-        result = result + buffer;
-    }
-    DEBUG("result is %s", result.c_str());
-    return 0;
-}
+int getfile(const std::string& path, std::string& result);
+
+typedef void (*initFunc)();
+
+typedef void (*doneFunc)();
+
+typedef void (*processFunc)();
 
 namespace U
 {

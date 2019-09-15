@@ -6,7 +6,7 @@
  */
 
 #include "log.h"
-
+extern int level;
 int main()
 {
     DEBUG("slave启动");
