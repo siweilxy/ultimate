@@ -1,6 +1,7 @@
 #include <iostream>
 #include "log.h"
 #include <pthread.h>
+#include "pubsub/pubsub.h"
 
 extern int level;
 
@@ -26,6 +27,7 @@ int main()
         DEBUG("%s%s%d%d", "good", "boy", 1, 2);
         ERROR("%s", "error");
         WARN("%s", "warn");
+        break;
     }
     return 0;
 }

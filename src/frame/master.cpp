@@ -66,7 +66,6 @@ void * scanThread(void* param)
 
 int runWorker(std::string file, std::string number)
 {
-    //int ret = execlp(file.c_str(), file.c_str(), "1", NULL);
     std::string b = "/";
     auto total_file = binPath + b + file;
     int ret = execl(total_file.c_str(), total_file.c_str(), "1", NULL);
@@ -188,6 +187,7 @@ int main()
 
     json j = json::parse(result);
     ret = runWorkers(j);
+
     DEBUG("启动成功");
 
     U::pipe p(FIFO_NAME);
@@ -243,6 +243,9 @@ int main()
                     {
                         button = 1;
                         ERROR("程序退出");
+                        break;
+                    }case ul_process_success:
+                    {
                         break;
                     }
                     default:

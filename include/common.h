@@ -26,6 +26,7 @@ enum msgType
 {
   ul_log = 0,
   ul_end,
+  ul_process_success,
   ul_other
 };
 
