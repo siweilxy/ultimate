@@ -11,6 +11,14 @@
 
 int main()
 {
+
+    int ret = init();
+    if(ret != 0)
+    {
+        printf("init error");
+    }
     sub();
+    while(1){sleep(1);}
+
     return 0;
 }

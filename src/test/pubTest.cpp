@@ -6,11 +6,16 @@
  */
 
 #include "pubsub/pubsub.h"
-
+#include <stdio.h>
 
 int main()
 {
-    init();
+    int ret = init();
+    if(ret != 0)
+    {
+        printf("init error");
+    }
     pub();
+    while(1){sleep(1);}
     return 0;
 }

@@ -8,11 +8,12 @@
 #ifndef INCLUDE_COMMON_H_
 #define INCLUDE_COMMON_H_
 #include <stdio.h>
-#include "log.h"
+#include "log/log.h"
 #include <stdlib.h>
 #include "json.hpp"
 #include <iostream>
 #include <fstream>
+#include <netinet/in.h>
 
 #define FIFO_NAME "entry"
 
@@ -24,10 +25,7 @@ typedef struct fd_s
 
 enum msgType
 {
-  ul_log = 0,
-  ul_end,
-  ul_process_success,
-  ul_other
+    ul_log = 0, ul_end, ul_process_success, ul_other
 };
 
 typedef struct internal_msg_s
@@ -38,7 +36,32 @@ typedef struct internal_msg_s
     char reslut[512];
     char masterIp[512];
     msgType type;
-}internal_msg_t;
+} internal_msg_t;
+
+namespace PUBSUB
+{
+enum pubsubMsgType
+{
+    HEATBEAT = 0
+};
+
+typedef struct pubusb_msg_s
+{
+    int length;
+    int type;
+    int magic;
+    char remoteIP[255];
+    char msg[0];
+} pubsub_msg_t;
+
+typedef struct session_s
+{
+    int uid;
+    int port;
+    std::string remoteIp;
+    sockaddr_in remote;
+} session_t;
+}
 
 int getfile(const std::string& path, std::string& result);
 
@@ -59,8 +82,8 @@ private:
 public:
     pipe(std::string fifoName);
     ~pipe();
-    int senMsg(char* buf,int length);
-    int recvMsg(char* buff,int len);
+    int senMsg(char* buf, int length);
+    int recvMsg(char* buff, int len);
     int getFd();
 };
 }
