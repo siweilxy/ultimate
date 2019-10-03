@@ -42,15 +42,16 @@ namespace PUBSUB
 {
 enum pubsubMsgType
 {
-    HEATBEAT = 0
+    HEATBEAT2SERVER = 0,
+    HEATBEAT2CLENT
 };
 
 typedef struct pubusb_msg_s
 {
+    char remoteIP[255];
     int length;
     int type;
     int magic;
-    char remoteIP[255];
     char msg[0];
 } pubsub_msg_t;
 

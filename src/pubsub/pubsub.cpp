@@ -10,11 +10,24 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <sys/socket.h>
+#include <arpa/inet.h>
 #include "pubsub/pubsub.h"
 
 static void* runRecvThread(void* args)
 {
     pubsub::getInstance()->recvMsg();
+    return nullptr;
+}
+
+static void* runRecvFromServerThread(void* args)
+{
+    pubsub::getInstance()->recvMsgFromServer();
+    return nullptr;
+}
+
+static void* runSolveMsgThread(void* args)
+{
+    pubsub::getInstance()->solveMsg();
     return nullptr;
 }
 
@@ -72,7 +85,7 @@ int pubsub::initLog()
 
     google::InitGoogleLogging(name);
     FLAGS_stderrthreshold = level;
-    FLAGS_logbufsecs =0; //立即写入
+    FLAGS_logbufsecs = 0; //立即写入
     std::string info_log = name;
     google::SetLogDestination(google::INFO,
             (info_log + "PUBSUB_INFO_").c_str());
@@ -93,16 +106,16 @@ int pubsub::initLog()
 int pubsub::initDevice()
 {
     int ret = 0;
-    udpFd = socket(AF_INET,SOCK_DGRAM,0);
-    memset(&servaddr,0,sizeof(servaddr));
-    memset(&cliaddr,0,sizeof(cliaddr));
-    servaddr.sin_family=AF_INET;
-    servaddr.sin_addr.s_addr=htonl(INADDR_ANY);
-    while(udpFd < 60999)
+    udpFd = socket(AF_INET, SOCK_DGRAM, 0);
+    memset(&servaddr, 0, sizeof(servaddr));
+    memset(&cliaddr, 0, sizeof(cliaddr));
+    servaddr.sin_family = AF_INET;
+    servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
+    while (udpFd < 60999)
     {
-        servaddr.sin_port=udpPort;
-        ret = bind(udpFd,(struct sockaddr *)&servaddr,sizeof(servaddr));
-        if(ret != 0)
+        servaddr.sin_port = udpPort;
+        ret = bind(udpFd, (struct sockaddr *) &servaddr, sizeof(servaddr));
+        if (ret != 0)
         {
             LOG(ERROR)<<"bind error,errno is "<<errno<<" :"<<strerror(errno);
             if(errno == 98)
@@ -110,76 +123,136 @@ int pubsub::initDevice()
                 LOG(ERROR)<<"rebind  udpPort";
                 udpPort ++;
                 continue;
-            }else
+            } else
             {
                 LOG(FATAL)<<"bind error,errno is "<<errno<<" :"<<strerror(errno);
                 break;
             }
-        }else
+        } else
         {
             LOG(WARNING)<<"bind success ,port is "<<udpPort;
             break;
         }
     }
 
+    ret = initTcpClient();
+    if (ret != 0)
+    {
+        LOG(FATAL)<<"initTcpClient error";
+    }
+
     return ret;
+}
+
+int pubsub::initTcpClient()
+{
+    tcpFd = socket(PF_INET, SOCK_STREAM, 0);
+    memset(&serveradd_tcp, 0, sizeof(serveradd_tcp));
+    serveradd_tcp.sin_family = AF_INET;
+    serveradd_tcp.sin_port = htons(12345);
+    char ip[255] = "192.168.31.238";
+    char recvBuf[255] =
+    { 0 };
+    serveradd_tcp.sin_addr.s_addr = inet_addr(ip);
+    if (connect(tcpFd, (struct sockaddr*) &serveradd_tcp, sizeof(serveradd_tcp))
+            < 0)
+    {
+        LOG(FATAL)<<"connect error,errno is "<<errno<<" :"<<strerror(errno);
+        return -1;
+    }
+
+//    auto len = write(tcpFd,&ip[0],strlen(ip));
+//    LOG(INFO)<<"write len is "<<len;
+//    len = read(tcpFd,recvBuf,sizeof(recvBuf));
+//    LOG(INFO)<<"msg is "<<recvBuf;
+    return 0;
 }
 
 int pubsub::initRecvThread()
 {
-    pthread_create(&recvThread,nullptr,runRecvThread,nullptr);
+    pthread_create(&recvThread, nullptr, runRecvThread, nullptr);
     LOG(INFO)<<"recvThread init success";
     return 0;
 }
 
 int pubsub::initHeartBeatThread()
 {
-    pthread_create(&heartBeatThread,nullptr,runHeatBeatThread,nullptr);
+    pthread_create(&heartBeatThread, nullptr, runHeatBeatThread, nullptr);
     LOG(INFO)<<"heartBeatThread init success";
     return 0;
 }
 
 int pubsub::initSendMsgThread()
 {
-    pthread_create(&sendThread,nullptr,runSendThread,nullptr);
+    pthread_create(&sendThread, nullptr, runSendThread, nullptr);
+    LOG(INFO)<<"runSendThread init success";
+    return 0;
+}
+
+int pubsub::initRecvFromServerThread()
+{
+    pthread_create(&recvFromServerThread, nullptr, runRecvFromServerThread,
+            nullptr);
     LOG(INFO)<<"sendThread init success";
+    return 0;
+}
+
+int pubsub::initSolveMsgThread()
+{
+    pthread_create(&solveThread, nullptr, runSolveMsgThread,
+            nullptr);
+    LOG(INFO)<<"solveThread init success";
     return 0;
 }
 
 int pubsub::init()
 {
     int ret = initLog();
-    if(ret != 0)
+    if (ret != 0)
     {
         printf("init log error");
         return -1;
     }
 
     ret = initDevice();
-    if(ret != 0)
+    if (ret != 0)
     {
         LOG(FATAL)<<"initDevice ERROR";
         return -1;
     }
 
     ret = initRecvThread();
-    if(ret != 0 )
+    if (ret != 0)
     {
         LOG(FATAL)<<"initRecvThread ERROR";
         return -1;
     }
 
     ret = initHeartBeatThread();
-    if(ret != 0 )
+    if (ret != 0)
     {
         LOG(FATAL)<<"initHeartBeatThread ERROR";
         return -1;
     }
 
     ret = initSendMsgThread();
-    if(ret != 0)
+    if (ret != 0)
     {
         LOG(FATAL)<<"initSendMsgThread ERROR";
+        return -1;
+    }
+
+    ret = initRecvFromServerThread();
+    if (ret != 0)
+    {
+        LOG(FATAL)<<"initRecvFromServerThread ERROR";
+        return -1;
+    }
+
+    ret = initSolveMsgThread();
+    if (ret != 0)
+    {
+        LOG(FATAL)<<"initSolveMsgThread ERROR";
         return -1;
     }
 
@@ -203,9 +276,9 @@ pubsub::pubsub()
 
 pubsub::~pubsub()
 {
-    pthread_join(recvThread,nullptr);
-    pthread_join(heartBeatThread,nullptr);
-    pthread_join(sendThread,nullptr);
+    pthread_join(recvThread, nullptr);
+    pthread_join(heartBeatThread, nullptr);
+    pthread_join(sendThread, nullptr);
     delete instance;
 }
 
@@ -220,32 +293,55 @@ int pubsub::sendMsg()
 
     PUBSUB::pubsub_msg_t * msg;
     std::vector<PUBSUB::pubsub_msg_t> msgForSend;
-    while(1)
+    while (1)
     {
         pthread_mutex_lock(&sendMutex);
-        while(sendMsgs.empty())
-        pthread_cond_wait(&sendCond,&sendMutex);
+        while (sendMsgs.empty())
+            pthread_cond_wait(&sendCond, &sendMutex);
         msgForSend = std::move(sendMsgs);
         pthread_mutex_unlock(&sendMutex);
-        for(auto msg:msgForSend)
+        for (auto msg : msgForSend)
         {
-            LOG(INFO)<<msg.type;
+            switch (msg.type)
+            {
+            case PUBSUB::HEATBEAT2SERVER:
+            {
+                auto len = write(tcpFd, &msg, sizeof(msg));
+                LOG(INFO)<<"write len is "<<len;
+                break;
+            }
+            case PUBSUB::HEATBEAT2CLENT:
+            {
+                LOG(INFO)<<"HEATBEAT2CLENT:"<<msg.type;
+                break;
+            }default:
+            {
+                LOG(ERROR)<<"type error :"<<msg.type;
+            }
         }
     }
+}
     return 0;
 }
 
 int pubsub::heartBeatMsg()
 {
-    PUBSUB::pubsub_msg_t heatBeat;
-    heatBeat.length=0;
-    heatBeat.magic=10205794;
-    heatBeat.type =PUBSUB::HEATBEAT;
-    while(1)
+    char remoteIp[255] = "12345";
+    PUBSUB::pubsub_msg_t heatBeat2Server;
+    PUBSUB::pubsub_msg_t heatBeat2Client;
+    heatBeat2Server.length = sizeof(PUBSUB::pubsub_msg_t);
+    heatBeat2Server.magic = 10205794;
+    heatBeat2Server.type = PUBSUB::HEATBEAT2SERVER;
+    snprintf(heatBeat2Server.remoteIP,sizeof(heatBeat2Server.remoteIP),remoteIp,strlen(remoteIp));
+    heatBeat2Client.length = sizeof(PUBSUB::pubsub_msg_t);;
+    heatBeat2Client.magic = 10205794;
+    heatBeat2Client.type = PUBSUB::HEATBEAT2CLENT;
+    while (1)
     {
         sleep(1);
         pthread_mutex_lock(&sendMutex);
-        sendMsgs.push_back(heatBeat);
+        sendMsgs.push_back(heatBeat2Server);
+        sendMsgs.push_back(heatBeat2Client);
         pthread_mutex_unlock(&sendMutex);
         pthread_cond_signal(&sendCond);
     }
@@ -256,14 +352,61 @@ int pubsub::recvMsg()
 {
     socklen_t len = 0;
     PUBSUB::pubsub_msg_t * msg;
-    while(1)
+    while (1)
     {
+        recvfrom(udpFd, recvBuff, sizeof(recvBuff), 0,
+                (struct sockaddr *) &cliaddr, &len);
+        msg = (PUBSUB::pubsub_msg_t *) recvBuff;
         pthread_mutex_lock(&recvMutex);
-        recvfrom(udpFd,recvBuff,sizeof(recvBuff),0,(struct sockaddr *)&cliaddr,&len);
-        msg = (PUBSUB::pubsub_msg_t *)recvBuff;
         recvMsgs.push_back(*msg);
         pthread_mutex_unlock(&recvMutex);
         pthread_cond_signal(&recvCond);
+    }
+    return 0;
+}
+
+int pubsub::recvMsgFromServer()
+{
+    socklen_t len = 0;
+    PUBSUB::pubsub_msg_t * msg;
+    int msgs = 0;
+    while (1)
+    {
+        auto len = read(tcpFd, recvFromBuff, sizeof(recvFromBuff));
+        if(len == 0)
+        {
+            LOG(ERROR)<<"len is 0:"<<strerror(errno);
+            sleep(3600);
+        }
+        msgs++;
+        msg = (PUBSUB::pubsub_msg_t *) recvFromBuff;
+        pthread_mutex_lock(&recvMutex);
+        recvMsgs.push_back(*msg);
+        LOG(INFO)<<"recv msgs:"<<msgs;
+        pthread_mutex_unlock(&recvMutex);
+        pthread_cond_signal(&recvCond);
+    }
+    return 0;
+}
+
+int pubsub::solveMsg()
+{
+    socklen_t len = 0;
+
+    PUBSUB::pubsub_msg_t * msg;
+    std::vector<PUBSUB::pubsub_msg_t> msgRecv;
+    while (1)
+    {
+        pthread_mutex_lock(&recvMutex);
+        while (recvMsgs.empty())
+            pthread_cond_wait(&recvCond, &recvMutex);
+        msgRecv = std::move(recvMsgs);
+        pthread_mutex_unlock(&recvMutex);
+        LOG(INFO)<<"recv msg size:"<<msgRecv.size();
+        for (auto msg : msgRecv)
+        {
+            LOG(INFO)<<"recv msg:"<<msg.magic;
+        }
     }
     return 0;
 }
