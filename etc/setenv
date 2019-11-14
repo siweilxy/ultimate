@@ -6,6 +6,7 @@ export cfg_path=/home/siwei/github/ultimate/etc/work.ubb
 export BIN_PATH=$HOME/github/ultimate/bin
 export PUBSUB_LOG_PATH=$HOME/github/ultimate/log/
 export LOG_LEVEL=0
+export LD_LIBRARY_PATH=/home/siwei/github/ultimate/lib:/home/siwei/github/ultimate/3rdparty/lib
 #0 INFO
 #1 WARNING
 #2 ERROR

@@ -20,14 +20,18 @@ add_definitions("-g")
 FILE(GLOB_RECURSE all_files
         *.cpp
         )
+link_directories("$ENV{HOME}/github/ultimate/lib/")
 
 source_group(all_files)
 include_directories($ENV{HOME}/github/ultimate/include/log)
+include_directories($ENV{HOME}/github/ultimate/include/)
+include_directories($ENV{HOME}/github/ultimate/3rdparty/include/)
+include_directories($ENV{HOME}/github/ultimate/3rdparty/include/google/protobuf/)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 add_executable(mainTest main.cpp)
 add_executable(pubTest pubTest.cpp)
 add_executable(subTest subTest.cpp)
 
-target_link_libraries(mainTest log pubsub)
-target_link_libraries(pubTest log pubsub)
-target_link_libraries(subTest log pubsub)
+target_link_libraries(mainTest log pubsub protobuf)
+target_link_libraries(pubTest pubsub protobuf)
+target_link_libraries(subTest pubsub protobuf)

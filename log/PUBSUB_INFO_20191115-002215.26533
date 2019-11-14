@@ -1,0 +1,54 @@
+Log file created at: 2019/11/15 00:22:15
+Running on machine: siwei
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1115 00:22:15.048959 26533 pubsub.cpp:100] INFO log path is /home/siwei/github/ultimate/log/PUBSUB_INFO
+W1115 00:22:15.049165 26533 pubsub.cpp:101] WARNING log path is /home/siwei/github/ultimate/log/PUBSUB_WARNING
+E1115 00:22:15.049221 26533 pubsub.cpp:102] ERROR log path is /home/siwei/github/ultimate/log/PUBSUB_ERROR
+W1115 00:22:15.049293 26533 pubsub.cpp:155] bind success ,port is 10086
+I1115 00:22:15.049489 26533 pubsub.cpp:196] recvThread init success
+I1115 00:22:15.049566 26533 pubsub.cpp:203] heartBeatThread init success
+I1115 00:22:15.049628 26533 pubsub.cpp:210] runSendThread init success
+I1115 00:22:15.049717 26533 pubsub.cpp:218] sendThread init success
+I1115 00:22:15.049744 26537 pubsub.cpp:398] recvMsgFromServer:before read,pubsub_msg_t size is 0
+I1115 00:22:15.049773 26533 pubsub.cpp:226] solveThread init success
+I1115 00:22:16.050005 26536 pubsub.cpp:332] write len is 56
+I1115 00:22:16.050063 26536 pubsub.cpp:337] HEATBEAT2CLENT:1
+I1115 00:22:16.070343 26537 pubsub.cpp:400] recvMsgFromServer:after read,len is 0 errno is 0:Success
+E1115 00:22:16.070412 26537 pubsub.cpp:403] len is 0:Success
+I1115 00:22:17.050076 26536 pubsub.cpp:332] write len is 56
+I1115 00:22:17.050134 26536 pubsub.cpp:337] HEATBEAT2CLENT:1
+W1115 00:22:18.050120 26536 pubsub.cpp:110] sig is 13 errno is 0 :Success
+I1115 00:22:18.050242 26536 pubsub.cpp:332] write len is -1
+I1115 00:22:18.050261 26536 pubsub.cpp:337] HEATBEAT2CLENT:1
+I1115 00:22:19.050310 26536 pubsub.cpp:332] write len is 56
+I1115 00:22:19.050364 26536 pubsub.cpp:337] HEATBEAT2CLENT:1
+I1115 00:22:20.050431 26536 pubsub.cpp:332] write len is 56
+I1115 00:22:20.050478 26536 pubsub.cpp:337] HEATBEAT2CLENT:1
+W1115 00:22:21.050493 26536 pubsub.cpp:110] sig is 13 errno is 32 :Broken pipe
+I1115 00:22:21.050614 26536 pubsub.cpp:332] write len is -1
+I1115 00:22:21.050631 26536 pubsub.cpp:337] HEATBEAT2CLENT:1
+I1115 00:22:22.050652 26536 pubsub.cpp:332] write len is 56
+I1115 00:22:22.050690 26536 pubsub.cpp:337] HEATBEAT2CLENT:1
+I1115 00:22:23.050791 26536 pubsub.cpp:332] write len is 56
+I1115 00:22:23.050843 26536 pubsub.cpp:337] HEATBEAT2CLENT:1
+W1115 00:22:24.050951 26536 pubsub.cpp:110] sig is 13 errno is 32 :Broken pipe
+I1115 00:22:24.051069 26536 pubsub.cpp:332] write len is -1
+I1115 00:22:24.051086 26536 pubsub.cpp:337] HEATBEAT2CLENT:1
+I1115 00:22:25.051008 26536 pubsub.cpp:332] write len is 56
+I1115 00:22:25.051044 26536 pubsub.cpp:337] HEATBEAT2CLENT:1
+I1115 00:22:26.051169 26536 pubsub.cpp:332] write len is 56
+I1115 00:22:26.051205 26536 pubsub.cpp:337] HEATBEAT2CLENT:1
+W1115 00:22:27.051216 26536 pubsub.cpp:110] sig is 13 errno is 32 :Broken pipe
+I1115 00:22:27.051340 26536 pubsub.cpp:332] write len is -1
+I1115 00:22:27.051352 26536 pubsub.cpp:337] HEATBEAT2CLENT:1
+I1115 00:22:28.051378 26536 pubsub.cpp:332] write len is 56
+I1115 00:22:28.051440 26536 pubsub.cpp:337] HEATBEAT2CLENT:1
+I1115 00:22:29.051519 26536 pubsub.cpp:332] write len is 56
+I1115 00:22:29.051575 26536 pubsub.cpp:337] HEATBEAT2CLENT:1
+W1115 00:22:30.051575 26536 pubsub.cpp:110] sig is 13 errno is 32 :Broken pipe
+I1115 00:22:30.051726 26536 pubsub.cpp:332] write len is -1
+I1115 00:22:30.051741 26536 pubsub.cpp:337] HEATBEAT2CLENT:1
+I1115 00:22:31.051710 26536 pubsub.cpp:332] write len is 56
+I1115 00:22:31.051753 26536 pubsub.cpp:337] HEATBEAT2CLENT:1
+I1115 00:22:32.051795 26536 pubsub.cpp:332] write len is 56
+I1115 00:22:32.051836 26536 pubsub.cpp:337] HEATBEAT2CLENT:1

@@ -1,0 +1,160 @@
+Log file created at: 2019/10/21 23:16:06
+Running on machine: siwei
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1021 23:16:06.835026 101916 pubsub.cpp:100] INFO log path is /home/siwei/github/ultimate/log/PUBSUB_INFO
+W1021 23:16:06.835245 101916 pubsub.cpp:101] WARNING log path is /home/siwei/github/ultimate/log/PUBSUB_WARNING
+E1021 23:16:06.835288 101916 pubsub.cpp:102] ERROR log path is /home/siwei/github/ultimate/log/PUBSUB_ERROR
+W1021 23:16:06.835343 101916 pubsub.cpp:134] bind success ,port is 10086
+I1021 23:16:06.835522 101916 pubsub.cpp:175] recvThread init success
+I1021 23:16:06.835582 101916 pubsub.cpp:182] heartBeatThread init success
+I1021 23:16:06.835638 101916 pubsub.cpp:189] runSendThread init success
+I1021 23:16:06.835752 101916 pubsub.cpp:197] sendThread init success
+I1021 23:16:06.835804 101916 pubsub.cpp:205] solveThread init success
+I1021 23:16:06.835806 101920 pubsub.cpp:377] recvMsgFromServer:before read,pubsub_msg_t size is 0
+I1021 23:16:07.835984 101919 pubsub.cpp:311] write len is 56
+I1021 23:16:07.836019 101919 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1021 23:16:07.882033 101920 pubsub.cpp:379] recvMsgFromServer:after read,len is 12
+I1021 23:16:07.882102 101920 pubsub.cpp:388] 1234567890
+I1021 23:16:07.882117 101920 pubsub.cpp:390] recv msgs:1
+I1021 23:16:07.882130 101920 pubsub.cpp:377] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1021 23:16:08.836024 101919 pubsub.cpp:311] write len is 56
+I1021 23:16:08.836051 101919 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1021 23:16:08.836890 101920 pubsub.cpp:379] recvMsgFromServer:after read,len is 12
+I1021 23:16:08.836920 101920 pubsub.cpp:388] 1234567890
+I1021 23:16:08.836932 101920 pubsub.cpp:390] recv msgs:2
+I1021 23:16:08.836944 101920 pubsub.cpp:377] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1021 23:16:09.836145 101919 pubsub.cpp:311] write len is 56
+I1021 23:16:09.836199 101919 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1021 23:16:09.837236 101920 pubsub.cpp:379] recvMsgFromServer:after read,len is 12
+I1021 23:16:09.837275 101920 pubsub.cpp:388] 1234567890
+I1021 23:16:09.837298 101920 pubsub.cpp:390] recv msgs:3
+I1021 23:16:09.837318 101920 pubsub.cpp:377] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1021 23:16:10.836242 101919 pubsub.cpp:311] write len is 56
+I1021 23:16:10.836287 101919 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1021 23:16:10.837339 101920 pubsub.cpp:379] recvMsgFromServer:after read,len is 12
+I1021 23:16:10.837361 101920 pubsub.cpp:388] 1234567890
+I1021 23:16:10.837373 101920 pubsub.cpp:390] recv msgs:4
+I1021 23:16:10.837388 101920 pubsub.cpp:377] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1021 23:16:11.836351 101919 pubsub.cpp:311] write len is 56
+I1021 23:16:11.836406 101919 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1021 23:16:11.837324 101920 pubsub.cpp:379] recvMsgFromServer:after read,len is 12
+I1021 23:16:11.837355 101920 pubsub.cpp:388] 1234567890
+I1021 23:16:11.837371 101920 pubsub.cpp:390] recv msgs:5
+I1021 23:16:11.837383 101920 pubsub.cpp:377] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1021 23:16:12.836416 101919 pubsub.cpp:311] write len is 56
+I1021 23:16:12.836447 101919 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1021 23:16:12.837196 101920 pubsub.cpp:379] recvMsgFromServer:after read,len is 12
+I1021 23:16:12.837214 101920 pubsub.cpp:388] 1234567890
+I1021 23:16:12.837225 101920 pubsub.cpp:390] recv msgs:6
+I1021 23:16:12.837240 101920 pubsub.cpp:377] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1021 23:16:13.836614 101919 pubsub.cpp:311] write len is 56
+I1021 23:16:13.836655 101919 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1021 23:16:13.837241 101920 pubsub.cpp:379] recvMsgFromServer:after read,len is 12
+I1021 23:16:13.837257 101920 pubsub.cpp:388] 1234567890
+I1021 23:16:13.837266 101920 pubsub.cpp:390] recv msgs:7
+I1021 23:16:13.837278 101920 pubsub.cpp:377] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1021 23:16:14.836601 101919 pubsub.cpp:311] write len is 56
+I1021 23:16:14.836642 101919 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1021 23:16:14.837301 101920 pubsub.cpp:379] recvMsgFromServer:after read,len is 12
+I1021 23:16:14.837333 101920 pubsub.cpp:388] 1234567890
+I1021 23:16:14.837343 101920 pubsub.cpp:390] recv msgs:8
+I1021 23:16:14.837355 101920 pubsub.cpp:377] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1021 23:16:15.836725 101919 pubsub.cpp:311] write len is 56
+I1021 23:16:15.836786 101919 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1021 23:16:15.837703 101920 pubsub.cpp:379] recvMsgFromServer:after read,len is 12
+I1021 23:16:15.837735 101920 pubsub.cpp:388] 1234567890
+I1021 23:16:15.837765 101920 pubsub.cpp:390] recv msgs:9
+I1021 23:16:15.837785 101920 pubsub.cpp:377] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1021 23:16:16.836868 101919 pubsub.cpp:311] write len is 56
+I1021 23:16:16.836925 101919 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1021 23:16:16.837553 101920 pubsub.cpp:379] recvMsgFromServer:after read,len is 12
+I1021 23:16:16.837568 101920 pubsub.cpp:388] 1234567890
+I1021 23:16:16.837577 101920 pubsub.cpp:390] recv msgs:10
+I1021 23:16:16.837590 101920 pubsub.cpp:377] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1021 23:16:17.836907 101919 pubsub.cpp:311] write len is 56
+I1021 23:16:17.836946 101919 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1021 23:16:17.837695 101920 pubsub.cpp:379] recvMsgFromServer:after read,len is 12
+I1021 23:16:17.837713 101920 pubsub.cpp:388] 1234567890
+I1021 23:16:17.837723 101920 pubsub.cpp:390] recv msgs:11
+I1021 23:16:17.837734 101920 pubsub.cpp:377] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1021 23:16:18.837023 101919 pubsub.cpp:311] write len is 56
+I1021 23:16:18.837069 101919 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1021 23:16:18.837765 101920 pubsub.cpp:379] recvMsgFromServer:after read,len is 12
+I1021 23:16:18.837783 101920 pubsub.cpp:388] 1234567890
+I1021 23:16:18.837792 101920 pubsub.cpp:390] recv msgs:12
+I1021 23:16:18.837805 101920 pubsub.cpp:377] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1021 23:16:19.837087 101919 pubsub.cpp:311] write len is 56
+I1021 23:16:19.837126 101919 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1021 23:16:19.837882 101920 pubsub.cpp:379] recvMsgFromServer:after read,len is 12
+I1021 23:16:19.837916 101920 pubsub.cpp:388] 1234567890
+I1021 23:16:19.837926 101920 pubsub.cpp:390] recv msgs:13
+I1021 23:16:19.837939 101920 pubsub.cpp:377] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1021 23:16:20.837328 101919 pubsub.cpp:311] write len is 56
+I1021 23:16:20.837381 101919 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1021 23:16:20.838102 101920 pubsub.cpp:379] recvMsgFromServer:after read,len is 12
+I1021 23:16:20.838135 101920 pubsub.cpp:388] 1234567890
+I1021 23:16:20.838146 101920 pubsub.cpp:390] recv msgs:14
+I1021 23:16:20.838158 101920 pubsub.cpp:377] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1021 23:16:21.837311 101919 pubsub.cpp:311] write len is 56
+I1021 23:16:21.837348 101919 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1021 23:16:21.838131 101920 pubsub.cpp:379] recvMsgFromServer:after read,len is 12
+I1021 23:16:21.838160 101920 pubsub.cpp:388] 1234567890
+I1021 23:16:21.838181 101920 pubsub.cpp:390] recv msgs:15
+I1021 23:16:21.838194 101920 pubsub.cpp:377] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1021 23:16:22.837386 101919 pubsub.cpp:311] write len is 56
+I1021 23:16:22.837414 101919 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1021 23:16:22.838088 101920 pubsub.cpp:379] recvMsgFromServer:after read,len is 12
+I1021 23:16:22.838119 101920 pubsub.cpp:388] 1234567890
+I1021 23:16:22.838127 101920 pubsub.cpp:390] recv msgs:16
+I1021 23:16:22.838138 101920 pubsub.cpp:377] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1021 23:16:23.837518 101919 pubsub.cpp:311] write len is 56
+I1021 23:16:23.837568 101919 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1021 23:16:23.838328 101920 pubsub.cpp:379] recvMsgFromServer:after read,len is 12
+I1021 23:16:23.838362 101920 pubsub.cpp:388] 1234567890
+I1021 23:16:23.838384 101920 pubsub.cpp:390] recv msgs:17
+I1021 23:16:23.838397 101920 pubsub.cpp:377] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1021 23:16:24.837635 101919 pubsub.cpp:311] write len is 56
+I1021 23:16:24.837692 101919 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1021 23:16:24.838320 101920 pubsub.cpp:379] recvMsgFromServer:after read,len is 12
+I1021 23:16:24.838344 101920 pubsub.cpp:388] 1234567890
+I1021 23:16:24.838354 101920 pubsub.cpp:390] recv msgs:18
+I1021 23:16:24.838366 101920 pubsub.cpp:377] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1021 23:16:25.837968 101919 pubsub.cpp:311] write len is 56
+I1021 23:16:25.838008 101919 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1021 23:16:25.838533 101920 pubsub.cpp:379] recvMsgFromServer:after read,len is 12
+I1021 23:16:25.838557 101920 pubsub.cpp:388] 1234567890
+I1021 23:16:25.838565 101920 pubsub.cpp:390] recv msgs:19
+I1021 23:16:25.838578 101920 pubsub.cpp:377] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1021 23:16:26.837944 101919 pubsub.cpp:311] write len is 56
+I1021 23:16:26.837999 101919 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1021 23:16:26.838634 101920 pubsub.cpp:379] recvMsgFromServer:after read,len is 12
+I1021 23:16:26.838654 101920 pubsub.cpp:388] 1234567890
+I1021 23:16:26.838665 101920 pubsub.cpp:390] recv msgs:20
+I1021 23:16:26.838678 101920 pubsub.cpp:377] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1021 23:16:27.837889 101919 pubsub.cpp:311] write len is 56
+I1021 23:16:27.837914 101919 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1021 23:16:27.838433 101920 pubsub.cpp:379] recvMsgFromServer:after read,len is 12
+I1021 23:16:27.838451 101920 pubsub.cpp:388] 1234567890
+I1021 23:16:27.838460 101920 pubsub.cpp:390] recv msgs:21
+I1021 23:16:27.838471 101920 pubsub.cpp:377] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1021 23:16:28.837997 101919 pubsub.cpp:311] write len is 56
+I1021 23:16:28.838033 101919 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1021 23:16:28.838579 101920 pubsub.cpp:379] recvMsgFromServer:after read,len is 12
+I1021 23:16:28.838601 101920 pubsub.cpp:388] 1234567890
+I1021 23:16:28.838614 101920 pubsub.cpp:390] recv msgs:22
+I1021 23:16:28.838629 101920 pubsub.cpp:377] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1021 23:16:29.838130 101919 pubsub.cpp:311] write len is 56
+I1021 23:16:29.838197 101919 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1021 23:16:29.838802 101920 pubsub.cpp:379] recvMsgFromServer:after read,len is 12
+I1021 23:16:29.838826 101920 pubsub.cpp:388] 1234567890
+I1021 23:16:29.838835 101920 pubsub.cpp:390] recv msgs:23
+I1021 23:16:29.838851 101920 pubsub.cpp:377] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1021 23:16:30.838237 101919 pubsub.cpp:311] write len is 56
+I1021 23:16:30.838294 101919 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1021 23:16:30.838753 101920 pubsub.cpp:379] recvMsgFromServer:after read,len is 12
+I1021 23:16:30.838851 101920 pubsub.cpp:388] 1234567890
+I1021 23:16:30.838869 101920 pubsub.cpp:390] recv msgs:24
+I1021 23:16:30.838882 101920 pubsub.cpp:377] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1021 23:16:31.838431 101919 pubsub.cpp:311] write len is 56
+I1021 23:16:31.838485 101919 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1021 23:16:32.111809 101920 pubsub.cpp:379] recvMsgFromServer:after read,len is -1

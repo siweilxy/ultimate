@@ -1,0 +1,15 @@
+Log file created at: 2019/11/15 00:43:17
+Running on machine: siwei
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1115 00:43:17.300144 34201 pubsub.cpp:100] INFO log path is /home/siwei/github/ultimate/log/PUBSUB_INFO
+W1115 00:43:17.300276 34201 pubsub.cpp:101] WARNING log path is /home/siwei/github/ultimate/log/PUBSUB_WARNING
+E1115 00:43:17.300307 34201 pubsub.cpp:102] ERROR log path is /home/siwei/github/ultimate/log/PUBSUB_ERROR
+W1115 00:43:17.300352 34201 pubsub.cpp:155] bind success ,port is 10086
+I1115 00:43:17.300501 34201 pubsub.cpp:196] recvThread init success
+I1115 00:43:17.300551 34201 pubsub.cpp:203] heartBeatThread init success
+I1115 00:43:17.300619 34201 pubsub.cpp:210] runSendThread init success
+I1115 00:43:17.300655 34201 pubsub.cpp:218] sendThread init success
+I1115 00:43:17.300688 34205 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 0
+I1115 00:43:17.300696 34201 pubsub.cpp:226] solveThread init success
+I1115 00:43:18.300978 34204 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:43:18.322718 34205 pubsub.cpp:402] recvMsgFromServer:after read,len is -1 errno is 104:Connection reset by peer

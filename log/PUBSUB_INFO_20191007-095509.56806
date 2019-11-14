@@ -1,0 +1,32 @@
+Log file created at: 2019/10/07 09:55:09
+Running on machine: siwei
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1007 09:55:09.727448 56806 pubsub.cpp:100] INFO log path is /home/siwei/github/ultimate/log/PUBSUB_INFO
+W1007 09:55:09.727609 56806 pubsub.cpp:101] WARNING log path is /home/siwei/github/ultimate/log/PUBSUB_WARNING
+E1007 09:55:09.727650 56806 pubsub.cpp:102] ERROR log path is /home/siwei/github/ultimate/log/PUBSUB_ERROR
+W1007 09:55:09.727705 56806 pubsub.cpp:134] bind success ,port is 10086
+I1007 09:55:09.727890 56806 pubsub.cpp:175] recvThread init success
+I1007 09:55:09.727949 56806 pubsub.cpp:182] heartBeatThread init success
+I1007 09:55:09.728001 56806 pubsub.cpp:189] runSendThread init success
+I1007 09:55:09.728091 56806 pubsub.cpp:197] sendThread init success
+I1007 09:55:09.728178 56806 pubsub.cpp:205] solveThread init success
+I1007 09:55:10.728564 56809 pubsub.cpp:311] write len is 56
+I1007 09:55:10.728624 56809 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1007 09:55:11.728602 56809 pubsub.cpp:311] write len is 56
+I1007 09:55:11.728660 56809 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1007 09:55:12.728682 56809 pubsub.cpp:311] write len is 56
+I1007 09:55:12.728737 56809 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1007 09:55:13.728832 56809 pubsub.cpp:311] write len is 56
+I1007 09:55:13.728883 56809 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1007 09:55:14.729079 56809 pubsub.cpp:311] write len is 56
+I1007 09:55:14.729249 56809 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1007 09:55:15.729073 56809 pubsub.cpp:311] write len is 56
+I1007 09:55:15.729121 56809 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1007 09:55:16.729190 56809 pubsub.cpp:311] write len is 56
+I1007 09:55:16.729243 56809 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1007 09:55:17.729414 56809 pubsub.cpp:311] write len is 56
+I1007 09:55:17.729465 56809 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1007 09:55:18.729516 56809 pubsub.cpp:311] write len is 56
+I1007 09:55:18.729566 56809 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1007 09:55:19.729596 56809 pubsub.cpp:311] write len is 56
+I1007 09:55:19.729648 56809 pubsub.cpp:316] HEATBEAT2CLENT:1

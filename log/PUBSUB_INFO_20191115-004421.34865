@@ -1,0 +1,233 @@
+Log file created at: 2019/11/15 00:44:21
+Running on machine: siwei
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1115 00:44:21.650243 34865 pubsub.cpp:100] INFO log path is /home/siwei/github/ultimate/log/PUBSUB_INFO
+W1115 00:44:21.650413 34865 pubsub.cpp:101] WARNING log path is /home/siwei/github/ultimate/log/PUBSUB_WARNING
+E1115 00:44:21.650466 34865 pubsub.cpp:102] ERROR log path is /home/siwei/github/ultimate/log/PUBSUB_ERROR
+W1115 00:44:21.650540 34865 pubsub.cpp:155] bind success ,port is 10086
+I1115 00:44:21.650703 34865 pubsub.cpp:196] recvThread init success
+I1115 00:44:21.650775 34865 pubsub.cpp:203] heartBeatThread init success
+I1115 00:44:21.650840 34865 pubsub.cpp:210] runSendThread init success
+I1115 00:44:21.650895 34865 pubsub.cpp:218] sendThread init success
+I1115 00:44:21.650946 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 0
+I1115 00:44:21.650954 34865 pubsub.cpp:226] solveThread init success
+I1115 00:44:22.651479 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:22.695955 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 24 errno is 0:Success
+I1115 00:44:22.696058 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:22.696074 34869 pubsub.cpp:413] recv msgs:1
+I1115 00:44:22.696092 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:23.651485 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:23.652922 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:23.652968 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:23.652978 34869 pubsub.cpp:413] recv msgs:2
+I1115 00:44:23.652989 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:24.651782 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:24.653029 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:24.653059 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:24.653069 34869 pubsub.cpp:413] recv msgs:3
+I1115 00:44:24.653077 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:25.651644 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:25.652606 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:25.652632 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:25.652639 34869 pubsub.cpp:413] recv msgs:4
+I1115 00:44:25.652647 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:26.651747 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:26.653067 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:26.653105 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:26.653120 34869 pubsub.cpp:413] recv msgs:5
+I1115 00:44:26.653133 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:27.651859 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:27.653282 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:27.653317 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:27.653328 34869 pubsub.cpp:413] recv msgs:6
+I1115 00:44:27.653340 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:28.652045 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:28.653277 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:28.653306 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:28.653316 34869 pubsub.cpp:413] recv msgs:7
+I1115 00:44:28.653331 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:29.652076 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:29.653422 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:29.653458 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:29.653473 34869 pubsub.cpp:413] recv msgs:8
+I1115 00:44:29.653514 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:30.652189 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:30.653499 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:30.653556 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:30.653586 34869 pubsub.cpp:413] recv msgs:9
+I1115 00:44:30.653602 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:31.652299 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:31.653596 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:31.653623 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:31.653633 34869 pubsub.cpp:413] recv msgs:10
+I1115 00:44:31.653646 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:32.652415 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:32.653759 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:32.653782 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:32.653789 34869 pubsub.cpp:413] recv msgs:11
+I1115 00:44:32.653800 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:33.652542 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:33.653724 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:33.653755 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:33.653769 34869 pubsub.cpp:413] recv msgs:12
+I1115 00:44:33.653787 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:34.656999 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:34.662811 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:34.662943 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:34.662963 34869 pubsub.cpp:413] recv msgs:13
+I1115 00:44:34.662978 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:35.653239 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:35.654289 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:35.654368 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:35.654397 34869 pubsub.cpp:413] recv msgs:14
+I1115 00:44:35.654417 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:36.653352 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:36.654673 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:36.654739 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:36.654757 34869 pubsub.cpp:413] recv msgs:15
+I1115 00:44:36.654772 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:37.653542 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:37.654422 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:37.654477 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:37.654496 34869 pubsub.cpp:413] recv msgs:16
+I1115 00:44:37.654511 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:38.653569 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:38.654426 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:38.654479 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:38.654508 34869 pubsub.cpp:413] recv msgs:17
+I1115 00:44:38.654525 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:39.653676 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:39.654681 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:39.654734 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:39.654757 34869 pubsub.cpp:413] recv msgs:18
+I1115 00:44:39.654775 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:40.653789 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:40.656953 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:40.656985 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:40.656991 34869 pubsub.cpp:413] recv msgs:19
+I1115 00:44:40.656999 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:41.653868 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:41.654933 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:41.654984 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:41.654995 34869 pubsub.cpp:413] recv msgs:20
+I1115 00:44:41.655009 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:42.654181 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:42.655328 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:42.655366 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:42.655378 34869 pubsub.cpp:413] recv msgs:21
+I1115 00:44:42.655390 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:43.654217 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:43.655331 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:43.655369 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:43.655381 34869 pubsub.cpp:413] recv msgs:22
+I1115 00:44:43.655398 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:44.654319 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:44.655483 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:44.655520 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:44.655531 34869 pubsub.cpp:413] recv msgs:23
+I1115 00:44:44.655547 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:45.654454 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:45.655655 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:45.655692 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:45.655704 34869 pubsub.cpp:413] recv msgs:24
+I1115 00:44:45.655719 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:46.654664 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:46.655839 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:46.655876 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:46.655891 34869 pubsub.cpp:413] recv msgs:25
+I1115 00:44:46.655911 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:47.654553 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:47.655827 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:47.655858 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:47.655870 34869 pubsub.cpp:413] recv msgs:26
+I1115 00:44:47.655884 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:48.654651 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:48.655758 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:48.655783 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:48.655791 34869 pubsub.cpp:413] recv msgs:27
+I1115 00:44:48.655800 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:49.654729 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:49.655782 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:49.655807 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:49.655814 34869 pubsub.cpp:413] recv msgs:28
+I1115 00:44:49.655823 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:50.654994 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:50.656112 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:50.656155 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:50.656173 34869 pubsub.cpp:413] recv msgs:29
+I1115 00:44:50.656188 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:51.655081 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:51.656010 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:51.656044 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:51.656054 34869 pubsub.cpp:413] recv msgs:30
+I1115 00:44:51.656067 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:52.655359 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:52.656601 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:52.656654 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:52.656666 34869 pubsub.cpp:413] recv msgs:31
+I1115 00:44:52.656678 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:53.655372 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:53.656551 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:53.656577 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:53.656587 34869 pubsub.cpp:413] recv msgs:32
+I1115 00:44:53.656600 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:54.655604 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:54.656734 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:54.656785 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:54.656844 34869 pubsub.cpp:413] recv msgs:33
+I1115 00:44:54.656864 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:55.655602 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:55.656765 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:55.656816 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:55.656829 34869 pubsub.cpp:413] recv msgs:34
+I1115 00:44:55.656843 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:56.655696 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:56.656857 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:56.656899 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:56.656916 34869 pubsub.cpp:413] recv msgs:35
+I1115 00:44:56.656939 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:57.655933 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:57.657078 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:57.657116 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:57.657133 34869 pubsub.cpp:413] recv msgs:36
+I1115 00:44:57.657152 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:58.655913 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:58.656893 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:58.656927 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:58.656939 34869 pubsub.cpp:413] recv msgs:37
+I1115 00:44:58.656953 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:44:59.656042 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:44:59.657092 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:44:59.657132 34869 pubsub.cpp:411] 1234567890
+I1115 00:44:59.657142 34869 pubsub.cpp:413] recv msgs:38
+I1115 00:44:59.657157 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:45:00.656141 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:45:00.657285 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:45:00.657330 34869 pubsub.cpp:411] 1234567890
+I1115 00:45:00.657706 34869 pubsub.cpp:413] recv msgs:39
+I1115 00:45:00.657727 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:45:01.656246 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:45:01.657325 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:45:01.657363 34869 pubsub.cpp:411] 1234567890
+I1115 00:45:01.657375 34869 pubsub.cpp:413] recv msgs:40
+I1115 00:45:01.657389 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:45:02.657734 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:45:02.668107 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:45:02.668450 34869 pubsub.cpp:411] 1234567890
+I1115 00:45:02.668615 34869 pubsub.cpp:413] recv msgs:41
+I1115 00:45:02.668668 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:45:03.656896 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:45:03.657912 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:45:03.657974 34869 pubsub.cpp:411] 1234567890
+I1115 00:45:03.657994 34869 pubsub.cpp:413] recv msgs:42
+I1115 00:45:03.658013 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:45:04.656999 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:45:04.658171 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:45:04.658208 34869 pubsub.cpp:411] 1234567890
+I1115 00:45:04.658219 34869 pubsub.cpp:413] recv msgs:43
+I1115 00:45:04.658233 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1115 00:45:05.657109 34868 pubsub.cpp:339] HEATBEAT2CLENT:1
+I1115 00:45:05.658118 34869 pubsub.cpp:402] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1115 00:45:05.658146 34869 pubsub.cpp:411] 1234567890
+I1115 00:45:05.658156 34869 pubsub.cpp:413] recv msgs:44
+I1115 00:45:05.658169 34869 pubsub.cpp:400] recvMsgFromServer:before read,pubsub_msg_t size is 12

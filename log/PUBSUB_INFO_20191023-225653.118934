@@ -1,0 +1,61 @@
+Log file created at: 2019/10/23 22:56:53
+Running on machine: siwei
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1023 22:56:53.954597 118934 pubsub.cpp:100] INFO log path is /home/siwei/github/ultimate/log/PUBSUB_INFO
+W1023 22:56:53.954767 118934 pubsub.cpp:101] WARNING log path is /home/siwei/github/ultimate/log/PUBSUB_WARNING
+E1023 22:56:53.954811 118934 pubsub.cpp:102] ERROR log path is /home/siwei/github/ultimate/log/PUBSUB_ERROR
+W1023 22:56:53.954876 118934 pubsub.cpp:155] bind success ,port is 10086
+I1023 22:56:53.955052 118934 pubsub.cpp:196] recvThread init success
+I1023 22:56:53.955112 118934 pubsub.cpp:203] heartBeatThread init success
+I1023 22:56:53.955194 118934 pubsub.cpp:210] runSendThread init success
+I1023 22:56:53.955260 118934 pubsub.cpp:218] sendThread init success
+I1023 22:56:53.955308 118934 pubsub.cpp:226] solveThread init success
+I1023 22:56:53.955319 118938 pubsub.cpp:398] recvMsgFromServer:before read,pubsub_msg_t size is 0
+I1023 22:56:54.955683 118937 pubsub.cpp:332] write len is 56
+I1023 22:56:54.955755 118937 pubsub.cpp:337] HEATBEAT2CLENT:1
+I1023 22:56:54.985921 118938 pubsub.cpp:400] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1023 22:56:54.986013 118938 pubsub.cpp:409] 1234567890
+I1023 22:56:54.986029 118938 pubsub.cpp:411] recv msgs:1
+I1023 22:56:54.986044 118938 pubsub.cpp:398] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1023 22:56:55.955634 118937 pubsub.cpp:332] write len is 56
+I1023 22:56:55.955693 118937 pubsub.cpp:337] HEATBEAT2CLENT:1
+I1023 22:56:55.957077 118938 pubsub.cpp:400] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1023 22:56:55.957119 118938 pubsub.cpp:409] 1234567890
+I1023 22:56:55.957137 118938 pubsub.cpp:411] recv msgs:2
+I1023 22:56:55.957152 118938 pubsub.cpp:398] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1023 22:56:56.956128 118937 pubsub.cpp:332] write len is 56
+I1023 22:56:56.956382 118937 pubsub.cpp:337] HEATBEAT2CLENT:1
+I1023 22:56:56.961979 118938 pubsub.cpp:400] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1023 22:56:56.962244 118938 pubsub.cpp:409] 1234567890
+I1023 22:56:56.962325 118938 pubsub.cpp:411] recv msgs:3
+I1023 22:56:56.962370 118938 pubsub.cpp:398] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1023 22:56:57.955952 118937 pubsub.cpp:332] write len is 56
+I1023 22:56:57.956009 118937 pubsub.cpp:337] HEATBEAT2CLENT:1
+I1023 22:56:57.957320 118938 pubsub.cpp:400] recvMsgFromServer:after read,len is 12 errno is 0:Success
+I1023 22:56:57.957355 118938 pubsub.cpp:409] 1234567890
+I1023 22:56:57.957365 118938 pubsub.cpp:411] recv msgs:4
+I1023 22:56:57.957378 118938 pubsub.cpp:398] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1023 22:56:58.953594 118938 pubsub.cpp:400] recvMsgFromServer:after read,len is 0 errno is 0:Success
+E1023 22:56:58.953658 118938 pubsub.cpp:403] len is 0:Success
+I1023 22:56:58.956058 118937 pubsub.cpp:332] write len is 56
+I1023 22:56:58.956085 118937 pubsub.cpp:337] HEATBEAT2CLENT:1
+W1023 22:56:59.956120 118937 pubsub.cpp:110] sig is 13 errno is 0 :Success
+W1023 22:56:59.956284 118937 pubsub.cpp:182] connect error,errno is 111 :Connection refused
+W1023 22:56:59.956300 118937 pubsub.cpp:114] initTcpClient errorerrno is 111 :Connection refused
+I1023 22:56:59.956313 118937 pubsub.cpp:332] write len is -1
+I1023 22:56:59.956322 118937 pubsub.cpp:337] HEATBEAT2CLENT:1
+W1023 22:57:00.956229 118937 pubsub.cpp:110] sig is 13 errno is 32 :Broken pipe
+W1023 22:57:00.956378 118937 pubsub.cpp:182] connect error,errno is 111 :Connection refused
+W1023 22:57:00.956396 118937 pubsub.cpp:114] initTcpClient errorerrno is 111 :Connection refused
+I1023 22:57:00.956409 118937 pubsub.cpp:332] write len is -1
+I1023 22:57:00.956418 118937 pubsub.cpp:337] HEATBEAT2CLENT:1
+W1023 22:57:01.956327 118937 pubsub.cpp:110] sig is 13 errno is 32 :Broken pipe
+W1023 22:57:01.956465 118937 pubsub.cpp:182] connect error,errno is 111 :Connection refused
+W1023 22:57:01.956480 118937 pubsub.cpp:114] initTcpClient errorerrno is 111 :Connection refused
+I1023 22:57:01.956491 118937 pubsub.cpp:332] write len is -1
+I1023 22:57:01.956518 118937 pubsub.cpp:337] HEATBEAT2CLENT:1
+W1023 22:57:02.956423 118937 pubsub.cpp:110] sig is 13 errno is 32 :Broken pipe
+W1023 22:57:02.956575 118937 pubsub.cpp:182] connect error,errno is 111 :Connection refused
+W1023 22:57:02.956593 118937 pubsub.cpp:114] initTcpClient errorerrno is 111 :Connection refused
+I1023 22:57:02.956604 118937 pubsub.cpp:332] write len is -1
+I1023 22:57:02.956612 118937 pubsub.cpp:337] HEATBEAT2CLENT:1

@@ -1,0 +1,19 @@
+Log file created at: 2019/10/23 22:56:53
+Running on machine: siwei
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+W1023 22:56:53.954767 118934 pubsub.cpp:101] WARNING log path is /home/siwei/github/ultimate/log/PUBSUB_WARNING
+E1023 22:56:53.954811 118934 pubsub.cpp:102] ERROR log path is /home/siwei/github/ultimate/log/PUBSUB_ERROR
+W1023 22:56:53.954876 118934 pubsub.cpp:155] bind success ,port is 10086
+E1023 22:56:58.953658 118938 pubsub.cpp:403] len is 0:Success
+W1023 22:56:59.956120 118937 pubsub.cpp:110] sig is 13 errno is 0 :Success
+W1023 22:56:59.956284 118937 pubsub.cpp:182] connect error,errno is 111 :Connection refused
+W1023 22:56:59.956300 118937 pubsub.cpp:114] initTcpClient errorerrno is 111 :Connection refused
+W1023 22:57:00.956229 118937 pubsub.cpp:110] sig is 13 errno is 32 :Broken pipe
+W1023 22:57:00.956378 118937 pubsub.cpp:182] connect error,errno is 111 :Connection refused
+W1023 22:57:00.956396 118937 pubsub.cpp:114] initTcpClient errorerrno is 111 :Connection refused
+W1023 22:57:01.956327 118937 pubsub.cpp:110] sig is 13 errno is 32 :Broken pipe
+W1023 22:57:01.956465 118937 pubsub.cpp:182] connect error,errno is 111 :Connection refused
+W1023 22:57:01.956480 118937 pubsub.cpp:114] initTcpClient errorerrno is 111 :Connection refused
+W1023 22:57:02.956423 118937 pubsub.cpp:110] sig is 13 errno is 32 :Broken pipe
+W1023 22:57:02.956575 118937 pubsub.cpp:182] connect error,errno is 111 :Connection refused
+W1023 22:57:02.956593 118937 pubsub.cpp:114] initTcpClient errorerrno is 111 :Connection refused

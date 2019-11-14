@@ -1,7 +1,7 @@
 #include <iostream>
 #include "log.h"
 #include <pthread.h>
-#include "pubsub/pubsub.h"
+//#include "pubsub/pubsub.h"
 #include <sys/types.h>
 
 extern int level;

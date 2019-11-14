@@ -1,0 +1,16 @@
+Log file created at: 2019/10/21 23:27:10
+Running on machine: siwei
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+W1021 23:27:10.359882 106242 pubsub.cpp:101] WARNING log path is /home/siwei/github/ultimate/log/PUBSUB_WARNING
+E1021 23:27:10.359925 106242 pubsub.cpp:102] ERROR log path is /home/siwei/github/ultimate/log/PUBSUB_ERROR
+W1021 23:27:10.359980 106242 pubsub.cpp:147] bind success ,port is 10086
+E1021 23:27:18.206869 106246 pubsub.cpp:395] len is 0:Success
+W1021 23:27:19.361635 106245 pubsub.cpp:109] errno is 0 :Success
+W1021 23:27:20.361742 106245 pubsub.cpp:109] errno is 32 :Broken pipe
+W1021 23:27:21.361860 106245 pubsub.cpp:109] errno is 32 :Broken pipe
+W1021 23:27:22.361963 106245 pubsub.cpp:109] errno is 32 :Broken pipe
+W1021 23:27:23.362067 106245 pubsub.cpp:109] errno is 32 :Broken pipe
+W1021 23:27:24.362196 106245 pubsub.cpp:109] errno is 32 :Broken pipe
+W1021 23:27:25.362372 106245 pubsub.cpp:109] errno is 32 :Broken pipe
+W1021 23:27:26.362393 106245 pubsub.cpp:109] errno is 32 :Broken pipe
+W1021 23:27:27.362601 106245 pubsub.cpp:109] errno is 32 :Broken pipe

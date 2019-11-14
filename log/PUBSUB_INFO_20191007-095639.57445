@@ -1,0 +1,23 @@
+Log file created at: 2019/10/07 09:56:39
+Running on machine: siwei
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1007 09:56:39.714139 57445 pubsub.cpp:100] INFO log path is /home/siwei/github/ultimate/log/PUBSUB_INFO
+W1007 09:56:39.714330 57445 pubsub.cpp:101] WARNING log path is /home/siwei/github/ultimate/log/PUBSUB_WARNING
+E1007 09:56:39.714375 57445 pubsub.cpp:102] ERROR log path is /home/siwei/github/ultimate/log/PUBSUB_ERROR
+W1007 09:56:39.714429 57445 pubsub.cpp:134] bind success ,port is 10086
+I1007 09:56:39.714581 57445 pubsub.cpp:175] recvThread init success
+I1007 09:56:39.714639 57445 pubsub.cpp:182] heartBeatThread init success
+I1007 09:56:39.714694 57445 pubsub.cpp:189] runSendThread init success
+I1007 09:56:39.714841 57445 pubsub.cpp:197] sendThread init success
+I1007 09:56:39.714881 57449 pubsub.cpp:376] recvMsgFromServer:before read
+I1007 09:56:39.714891 57445 pubsub.cpp:205] solveThread init success
+I1007 09:56:40.715143 57448 pubsub.cpp:311] write len is 56
+I1007 09:56:40.715201 57448 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1007 09:56:41.715291 57448 pubsub.cpp:311] write len is 56
+I1007 09:56:41.715349 57448 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1007 09:56:42.715531 57448 pubsub.cpp:311] write len is 56
+I1007 09:56:42.715587 57448 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1007 09:56:43.715617 57448 pubsub.cpp:311] write len is 56
+I1007 09:56:43.715662 57448 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1007 09:56:44.715801 57448 pubsub.cpp:311] write len is 56
+I1007 09:56:44.715850 57448 pubsub.cpp:316] HEATBEAT2CLENT:1

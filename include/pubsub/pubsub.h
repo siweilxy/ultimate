@@ -13,6 +13,7 @@
 #include <netinet/in.h>
 #include <pthread.h>
 #include "common.h"
+#include "pubsub_msg.pb.h"
 
 int init();
 int pub();
@@ -31,6 +32,7 @@ public:
     int solveMsg();
     ~pubsub();
     static pubsub* getInstance();
+    int initTcpClient();
 
 private:
     pthread_mutex_t recvMutex = PTHREAD_MUTEX_INITIALIZER;
@@ -45,7 +47,6 @@ private:
     static pubsub* instance;
     pubsub();
     int initDevice();
-    int initTcpClient();
     int initLog();
     int sendMsg(std::string msg);
     int initRecvThread();
@@ -54,8 +55,8 @@ private:
     int initRecvFromServerThread();
     int initSolveMsgThread();
 
-    std::vector<PUBSUB::pubsub_msg_t> recvMsgs;
-    std::vector<PUBSUB::pubsub_msg_t> sendMsgs;
+    std::vector<pubsub_msg_t> recvMsgs;
+    std::vector<pubsub_msg_t> sendMsgs;
     std::map<PUBSUB::session_t,std::vector<std::string>> sessions;
     char recvBuff[512];
     char recvFromBuff[512];

@@ -12,6 +12,7 @@
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include "pubsub/pubsub.h"
+#include "pubsub_msg.pb.h"
 
 static void* runRecvThread(void* args)
 {
@@ -103,6 +104,17 @@ int pubsub::initLog()
     return 0;
 }
 
+void handle_pipe(int sig)
+{
+    int ret = 0;
+    LOG(WARNING)<<"sig is "<<sig<<" errno is "<<errno<<" :"<<strerror(errno);
+    ret =pubsub::getInstance()->initTcpClient();
+    if (ret != 0)
+    {
+        LOG(WARNING)<<"initTcpClient error"<<"errno is "<<errno<<" :"<<strerror(errno);
+    }
+}
+
 int pubsub::initDevice()
 {
     int ret = 0;
@@ -111,6 +123,16 @@ int pubsub::initDevice()
     memset(&cliaddr, 0, sizeof(cliaddr));
     servaddr.sin_family = AF_INET;
     servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
+
+    struct sigaction sa;
+    sa.sa_handler = handle_pipe;
+    sigemptyset(&sa.sa_mask);
+    sa.sa_flags = 0;
+    for(int i = 1;i<32;i++)
+    {
+        sigaction(SIGPIPE,&sa,NULL);
+    }
+
     while (udpFd < 60999)
     {
         servaddr.sin_port = udpPort;
@@ -157,7 +179,7 @@ int pubsub::initTcpClient()
     if (connect(tcpFd, (struct sockaddr*) &serveradd_tcp, sizeof(serveradd_tcp))
             < 0)
     {
-        LOG(FATAL)<<"connect error,errno is "<<errno<<" :"<<strerror(errno);
+        LOG(WARNING)<<"connect error,errno is "<<errno<<" :"<<strerror(errno);
         return -1;
     }
 
@@ -290,9 +312,9 @@ pubsub* pubsub::getInstance()
 int pubsub::sendMsg()
 {
     socklen_t len = 0;
-
-    PUBSUB::pubsub_msg_t * msg;
-    std::vector<PUBSUB::pubsub_msg_t> msgForSend;
+    int sendLength = 0;
+    pubsub_msg_t * msg;
+    std::vector<pubsub_msg_t> msgForSend;
     while (1)
     {
         pthread_mutex_lock(&sendMutex);
@@ -302,21 +324,25 @@ int pubsub::sendMsg()
         pthread_mutex_unlock(&sendMutex);
         for (auto msg : msgForSend)
         {
-            switch (msg.type)
+            switch (msg.type())
             {
             case PUBSUB::HEATBEAT2SERVER:
             {
-                auto len = write(tcpFd, &msg, sizeof(msg));
+                sendLength = msg.ByteSizeLong();
+                char* buffToSend = (char*)malloc(msg.ByteSizeLong());
+                msg.SerializeToArray(buffToSend, msg.ByteSizeLong());
+                //write(tcpFd,&sendLength,sizeof(int));
+                auto len = write(tcpFd, buffToSend, msg.ByteSizeLong());
                 LOG(INFO)<<"write len is "<<len;
                 break;
             }
             case PUBSUB::HEATBEAT2CLENT:
             {
-                LOG(INFO)<<"HEATBEAT2CLENT:"<<msg.type;
+                LOG(INFO)<<"HEATBEAT2CLENT:"<<msg.type();
                 break;
             }default:
             {
-                LOG(ERROR)<<"type error :"<<msg.type;
+                LOG(ERROR)<<"type error :"<<msg.type();
             }
         }
     }
@@ -327,15 +353,15 @@ int pubsub::sendMsg()
 int pubsub::heartBeatMsg()
 {
     char remoteIp[255] = "12345";
-    PUBSUB::pubsub_msg_t heatBeat2Server;
-    PUBSUB::pubsub_msg_t heatBeat2Client;
-    heatBeat2Server.length = sizeof(PUBSUB::pubsub_msg_t);
-    heatBeat2Server.magic = 10205794;
-    heatBeat2Server.type = PUBSUB::HEATBEAT2SERVER;
-    snprintf(heatBeat2Server.remoteIP,sizeof(heatBeat2Server.remoteIP),remoteIp,strlen(remoteIp));
-    heatBeat2Client.length = sizeof(PUBSUB::pubsub_msg_t);;
-    heatBeat2Client.magic = 10205794;
-    heatBeat2Client.type = PUBSUB::HEATBEAT2CLENT;
+    pubsub_msg_t heatBeat2Server;
+    pubsub_msg_t heatBeat2Client;
+    heatBeat2Server.set_length(12345);
+    heatBeat2Server.set_magic(10205794);
+    heatBeat2Server.set_type(PUBSUB::HEATBEAT2SERVER);
+    //heatBeat2Server.type = PUBSUB::HEATBEAT2SERVER;
+    heatBeat2Server.set_remoteip(remoteIp);
+    heatBeat2Client.set_magic(10205794);
+    heatBeat2Client.set_type(PUBSUB::HEATBEAT2CLENT);
     while (1)
     {
         sleep(1);
@@ -351,12 +377,12 @@ int pubsub::heartBeatMsg()
 int pubsub::recvMsg()
 {
     socklen_t len = 0;
-    PUBSUB::pubsub_msg_t * msg;
+    pubsub_msg_t * msg;
     while (1)
     {
         recvfrom(udpFd, recvBuff, sizeof(recvBuff), 0,
                 (struct sockaddr *) &cliaddr, &len);
-        msg = (PUBSUB::pubsub_msg_t *) recvBuff;
+        msg = (pubsub_msg_t *) recvBuff;
         pthread_mutex_lock(&recvMutex);
         recvMsgs.push_back(*msg);
         pthread_mutex_unlock(&recvMutex);
@@ -368,20 +394,24 @@ int pubsub::recvMsg()
 int pubsub::recvMsgFromServer()
 {
     socklen_t len = 0;
-    PUBSUB::pubsub_msg_t * msg;
+    pubsub_msg_t msg;
     int msgs = 0;
     while (1)
     {
+        pthread_mutex_lock(&recvMutex);
+        LOG(INFO)<<"recvMsgFromServer:before read,pubsub_msg_t size is "<<msg.ByteSizeLong();
         auto len = read(tcpFd, recvFromBuff, sizeof(recvFromBuff));
+        LOG(INFO)<<"recvMsgFromServer:after read,len is "<<len<<" errno is "<<errno<<":"<<strerror(errno);
         if(len == 0)
         {
             LOG(ERROR)<<"len is 0:"<<strerror(errno);
-            sleep(3600);
+            continue;
         }
         msgs++;
-        msg = (PUBSUB::pubsub_msg_t *) recvFromBuff;
-        pthread_mutex_lock(&recvMutex);
-        recvMsgs.push_back(*msg);
+        //msg = (pubsub_msg_t *) recvFromBuff;
+        msg.ParseFromArray(recvFromBuff,len);
+        LOG(INFO)<<msg.remoteip();
+        recvMsgs.push_back(msg);
         LOG(INFO)<<"recv msgs:"<<msgs;
         pthread_mutex_unlock(&recvMutex);
         pthread_cond_signal(&recvCond);
@@ -393,8 +423,8 @@ int pubsub::solveMsg()
 {
     socklen_t len = 0;
 
-    PUBSUB::pubsub_msg_t * msg;
-    std::vector<PUBSUB::pubsub_msg_t> msgRecv;
+    pubsub_msg_t * msg;
+    std::vector<pubsub_msg_t> msgRecv;
     while (1)
     {
         pthread_mutex_lock(&recvMutex);
@@ -405,7 +435,7 @@ int pubsub::solveMsg()
         LOG(INFO)<<"recv msg size:"<<msgRecv.size();
         for (auto msg : msgRecv)
         {
-            LOG(INFO)<<"recv msg:"<<msg.magic;
+            LOG(INFO)<<"recv msg:"<<msg.remoteip();
         }
     }
     return 0;

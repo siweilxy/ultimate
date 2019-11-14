@@ -1,0 +1,16 @@
+Log file created at: 2019/10/07 10:19:56
+Running on machine: siwei
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1007 10:19:56.533841 66193 pubsub.cpp:100] INFO log path is /home/siwei/github/ultimate/log/PUBSUB_INFO
+W1007 10:19:56.534006 66193 pubsub.cpp:101] WARNING log path is /home/siwei/github/ultimate/log/PUBSUB_WARNING
+E1007 10:19:56.534050 66193 pubsub.cpp:102] ERROR log path is /home/siwei/github/ultimate/log/PUBSUB_ERROR
+W1007 10:19:56.534101 66193 pubsub.cpp:134] bind success ,port is 10086
+I1007 10:19:56.534288 66193 pubsub.cpp:175] recvThread init success
+I1007 10:19:56.534344 66193 pubsub.cpp:182] heartBeatThread init success
+I1007 10:19:56.534402 66193 pubsub.cpp:189] runSendThread init success
+I1007 10:19:56.534456 66193 pubsub.cpp:197] sendThread init success
+I1007 10:19:56.534505 66193 pubsub.cpp:205] solveThread init success
+I1007 10:19:56.534499 66197 pubsub.cpp:377] recvMsgFromServer:before read,pubsub_msg_t size is 56
+I1007 10:19:57.534703 66196 pubsub.cpp:311] write len is 56
+I1007 10:19:57.534747 66196 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1007 10:19:57.536191 66197 pubsub.cpp:379] recvMsgFromServer:after read,len is 12

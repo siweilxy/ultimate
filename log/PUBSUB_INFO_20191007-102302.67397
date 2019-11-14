@@ -1,0 +1,55 @@
+Log file created at: 2019/10/07 10:23:02
+Running on machine: siwei
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1007 10:23:02.235091 67397 pubsub.cpp:100] INFO log path is /home/siwei/github/ultimate/log/PUBSUB_INFO
+W1007 10:23:02.235261 67397 pubsub.cpp:101] WARNING log path is /home/siwei/github/ultimate/log/PUBSUB_WARNING
+E1007 10:23:02.235308 67397 pubsub.cpp:102] ERROR log path is /home/siwei/github/ultimate/log/PUBSUB_ERROR
+W1007 10:23:02.235364 67397 pubsub.cpp:134] bind success ,port is 10086
+I1007 10:23:02.235541 67397 pubsub.cpp:175] recvThread init success
+I1007 10:23:02.235597 67397 pubsub.cpp:182] heartBeatThread init success
+I1007 10:23:02.235656 67397 pubsub.cpp:189] runSendThread init success
+I1007 10:23:02.235764 67397 pubsub.cpp:197] sendThread init success
+I1007 10:23:02.235797 67401 pubsub.cpp:377] recvMsgFromServer:before read,pubsub_msg_t size is 56
+I1007 10:23:02.235832 67397 pubsub.cpp:205] solveThread init success
+I1007 10:23:03.236160 67400 pubsub.cpp:311] write len is 56
+I1007 10:23:03.236218 67400 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1007 10:23:03.238109 67401 pubsub.cpp:379] recvMsgFromServer:after read,len is 12
+I1007 10:23:03.238204 67401 pubsub.cpp:388] 
+I1007 10:23:03.238250 67401 pubsub.cpp:390] recv msgs:1
+I1007 10:23:03.238265 67401 pubsub.cpp:377] recvMsgFromServer:before read,pubsub_msg_t size is 56
+I1007 10:23:04.236269 67400 pubsub.cpp:311] write len is 56
+I1007 10:23:04.236330 67400 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1007 10:23:04.237359 67401 pubsub.cpp:379] recvMsgFromServer:after read,len is 12
+I1007 10:23:04.237426 67401 pubsub.cpp:388] 
+I1007 10:23:04.237443 67401 pubsub.cpp:390] recv msgs:2
+I1007 10:23:04.237458 67401 pubsub.cpp:377] recvMsgFromServer:before read,pubsub_msg_t size is 56
+I1007 10:23:05.236197 67400 pubsub.cpp:311] write len is 56
+I1007 10:23:05.236250 67400 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1007 10:23:05.236940 67401 pubsub.cpp:379] recvMsgFromServer:after read,len is 12
+I1007 10:23:05.236989 67401 pubsub.cpp:388] 
+I1007 10:23:05.237000 67401 pubsub.cpp:390] recv msgs:3
+I1007 10:23:05.237010 67401 pubsub.cpp:377] recvMsgFromServer:before read,pubsub_msg_t size is 56
+I1007 10:23:06.236397 67400 pubsub.cpp:311] write len is 56
+I1007 10:23:06.236454 67400 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1007 10:23:06.237507 67401 pubsub.cpp:379] recvMsgFromServer:after read,len is 12
+I1007 10:23:06.237540 67401 pubsub.cpp:388] 
+I1007 10:23:06.237553 67401 pubsub.cpp:390] recv msgs:4
+I1007 10:23:06.237568 67401 pubsub.cpp:377] recvMsgFromServer:before read,pubsub_msg_t size is 56
+I1007 10:23:07.236599 67400 pubsub.cpp:311] write len is 56
+I1007 10:23:07.236717 67400 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1007 10:23:07.238822 67401 pubsub.cpp:379] recvMsgFromServer:after read,len is 12
+I1007 10:23:07.238945 67401 pubsub.cpp:388] 
+I1007 10:23:07.238977 67401 pubsub.cpp:390] recv msgs:5
+I1007 10:23:07.238994 67401 pubsub.cpp:377] recvMsgFromServer:before read,pubsub_msg_t size is 56
+I1007 10:23:08.236778 67400 pubsub.cpp:311] write len is 56
+I1007 10:23:08.236840 67400 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1007 10:23:08.237844 67401 pubsub.cpp:379] recvMsgFromServer:after read,len is 12
+I1007 10:23:08.237876 67401 pubsub.cpp:388] 
+I1007 10:23:08.237890 67401 pubsub.cpp:390] recv msgs:6
+I1007 10:23:08.237915 67401 pubsub.cpp:377] recvMsgFromServer:before read,pubsub_msg_t size is 56
+I1007 10:23:09.236812 67400 pubsub.cpp:311] write len is 56
+I1007 10:23:09.236862 67400 pubsub.cpp:316] HEATBEAT2CLENT:1
+I1007 10:23:09.237921 67401 pubsub.cpp:379] recvMsgFromServer:after read,len is 12
+I1007 10:23:09.237959 67401 pubsub.cpp:388] 
+I1007 10:23:09.238001 67401 pubsub.cpp:390] recv msgs:7
+I1007 10:23:09.238023 67401 pubsub.cpp:377] recvMsgFromServer:before read,pubsub_msg_t size is 56

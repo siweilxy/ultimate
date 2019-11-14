@@ -1,0 +1,52 @@
+Log file created at: 2019/10/21 23:38:00
+Running on machine: siwei
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1021 23:38:00.601229 109911 pubsub.cpp:100] INFO log path is /home/siwei/github/ultimate/log/PUBSUB_INFO
+W1021 23:38:00.601331 109911 pubsub.cpp:101] WARNING log path is /home/siwei/github/ultimate/log/PUBSUB_WARNING
+E1021 23:38:00.601356 109911 pubsub.cpp:102] ERROR log path is /home/siwei/github/ultimate/log/PUBSUB_ERROR
+W1021 23:38:00.601389 109911 pubsub.cpp:153] bind success ,port is 10086
+I1021 23:38:00.601511 109911 pubsub.cpp:194] recvThread init success
+I1021 23:38:00.601553 109911 pubsub.cpp:201] heartBeatThread init success
+I1021 23:38:00.601589 109911 pubsub.cpp:208] runSendThread init success
+I1021 23:38:00.601711 109911 pubsub.cpp:216] sendThread init success
+I1021 23:38:00.601729 109915 pubsub.cpp:396] recvMsgFromServer:before read,pubsub_msg_t size is 0
+I1021 23:38:00.601747 109911 pubsub.cpp:224] solveThread init success
+I1021 23:38:01.602056 109914 pubsub.cpp:330] write len is 56
+I1021 23:38:01.602124 109914 pubsub.cpp:335] HEATBEAT2CLENT:1
+I1021 23:38:01.630506 109915 pubsub.cpp:398] recvMsgFromServer:after read,len is 12errno is Success
+I1021 23:38:01.630625 109915 pubsub.cpp:407] 1234567890
+I1021 23:38:01.630645 109915 pubsub.cpp:409] recv msgs:1
+I1021 23:38:01.630663 109915 pubsub.cpp:396] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1021 23:38:02.602084 109914 pubsub.cpp:330] write len is 56
+I1021 23:38:02.602150 109914 pubsub.cpp:335] HEATBEAT2CLENT:1
+I1021 23:38:02.603129 109915 pubsub.cpp:398] recvMsgFromServer:after read,len is 12errno is Success
+I1021 23:38:02.603168 109915 pubsub.cpp:407] 1234567890
+I1021 23:38:02.603183 109915 pubsub.cpp:409] recv msgs:2
+I1021 23:38:02.603199 109915 pubsub.cpp:396] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1021 23:38:03.602164 109914 pubsub.cpp:330] write len is 56
+I1021 23:38:03.602216 109914 pubsub.cpp:335] HEATBEAT2CLENT:1
+I1021 23:38:03.602911 109915 pubsub.cpp:398] recvMsgFromServer:after read,len is 12errno is Success
+I1021 23:38:03.602938 109915 pubsub.cpp:407] 1234567890
+I1021 23:38:03.602954 109915 pubsub.cpp:409] recv msgs:3
+I1021 23:38:03.602967 109915 pubsub.cpp:396] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1021 23:38:04.602265 109914 pubsub.cpp:330] write len is 56
+I1021 23:38:04.602322 109914 pubsub.cpp:335] HEATBEAT2CLENT:1
+I1021 23:38:04.603405 109915 pubsub.cpp:398] recvMsgFromServer:after read,len is 12errno is Success
+I1021 23:38:04.603441 109915 pubsub.cpp:407] 1234567890
+I1021 23:38:04.603452 109915 pubsub.cpp:409] recv msgs:4
+I1021 23:38:04.603466 109915 pubsub.cpp:396] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1021 23:38:05.602399 109914 pubsub.cpp:330] write len is 56
+I1021 23:38:05.602442 109914 pubsub.cpp:335] HEATBEAT2CLENT:1
+I1021 23:38:05.603286 109915 pubsub.cpp:398] recvMsgFromServer:after read,len is 12errno is Success
+I1021 23:38:05.603317 109915 pubsub.cpp:407] 1234567890
+I1021 23:38:05.603340 109915 pubsub.cpp:409] recv msgs:5
+I1021 23:38:05.603361 109915 pubsub.cpp:396] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1021 23:38:06.602576 109914 pubsub.cpp:330] write len is 56
+I1021 23:38:06.602636 109914 pubsub.cpp:335] HEATBEAT2CLENT:1
+I1021 23:38:06.603716 109915 pubsub.cpp:398] recvMsgFromServer:after read,len is 12errno is Success
+I1021 23:38:06.603754 109915 pubsub.cpp:407] 1234567890
+I1021 23:38:06.603771 109915 pubsub.cpp:409] recv msgs:6
+I1021 23:38:06.603790 109915 pubsub.cpp:396] recvMsgFromServer:before read,pubsub_msg_t size is 12
+I1021 23:38:07.603448 109914 pubsub.cpp:330] write len is 56
+I1021 23:38:07.603857 109914 pubsub.cpp:335] HEATBEAT2CLENT:1
+I1021 23:38:07.689957 109915 pubsub.cpp:398] recvMsgFromServer:after read,len is -1errno is Connection reset by peer

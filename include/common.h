@@ -46,14 +46,14 @@ enum pubsubMsgType
     HEATBEAT2CLENT
 };
 
-typedef struct pubusb_msg_s
-{
-    char remoteIP[255];
-    int length;
-    int type;
-    int magic;
-    char msg[0];
-} pubsub_msg_t;
+//typedef struct pubusb_msg_s
+//{
+//    char remoteIP[255];
+//    int length;
+//    int type;
+//    int magic;
+//    char msg[0];
+//} pubsub_msg_t;
 
 typedef struct session_s
 {
