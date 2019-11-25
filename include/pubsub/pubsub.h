@@ -31,7 +31,7 @@ public:
     int sendMsg();
     int solveMsg();
     ~pubsub();
-    static pubsub* getInstance();
+    static pubsub& getInstance();
     int initTcpClient();
 
 private:
@@ -44,7 +44,7 @@ private:
     pthread_mutex_t sendMutex = PTHREAD_MUTEX_INITIALIZER;
     pthread_cond_t sendCond = PTHREAD_COND_INITIALIZER;
 
-    static pubsub* instance;
+    //static pubsub* instance;
     pubsub();
     int initDevice();
     int initLog();
@@ -71,9 +71,8 @@ private:
     pthread_t sendThread;
     pthread_t recvFromServerThread;
     pthread_t solveThread;
-
 };
 
-pubsub* pubsub::instance = new pubsub();
+//pubsub* pubsub::instance = new pubsub();
 
 #endif /* INCLUDE_PUBSUB_PUBSUB_H_ */

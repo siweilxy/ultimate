@@ -1,6 +1,0 @@
-Log file created at: 2019/10/07 09:55:09
-Running on machine: siwei
-Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
-W1007 09:55:09.727609 56806 pubsub.cpp:101] WARNING log path is /home/siwei/github/ultimate/log/PUBSUB_WARNING
-E1007 09:55:09.727650 56806 pubsub.cpp:102] ERROR log path is /home/siwei/github/ultimate/log/PUBSUB_ERROR
-W1007 09:55:09.727705 56806 pubsub.cpp:134] bind success ,port is 10086

@@ -1,4 +1,0 @@
-Log file created at: 2019/10/21 23:35:08
-Running on machine: siwei
-Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
-E1021 23:35:08.538578 108818 pubsub.cpp:102] ERROR log path is /home/siwei/github/ultimate/log/PUBSUB_ERROR

@@ -1,4 +1,0 @@
-Log file created at: 2019/11/15 00:46:34
-Running on machine: siwei
-Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
-F1115 00:46:34.014943 35622 pubsub.cpp:163] initTcpClient error

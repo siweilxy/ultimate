@@ -16,50 +16,50 @@
 
 static void* runRecvThread(void* args)
 {
-    pubsub::getInstance()->recvMsg();
+    pubsub::getInstance().recvMsg();
     return nullptr;
 }
 
 static void* runRecvFromServerThread(void* args)
 {
-    pubsub::getInstance()->recvMsgFromServer();
+    pubsub::getInstance().recvMsgFromServer();
     return nullptr;
 }
 
 static void* runSolveMsgThread(void* args)
 {
-    pubsub::getInstance()->solveMsg();
+    pubsub::getInstance().solveMsg();
     return nullptr;
 }
 
 static void* runHeatBeatThread(void* args)
 {
-    pubsub::getInstance()->heartBeatMsg();
+    pubsub::getInstance().heartBeatMsg();
     return nullptr;
 }
 
 static void* runSendThread(void* args)
 {
-    pubsub::getInstance()->sendMsg();
+    pubsub::getInstance().sendMsg();
     return nullptr;
 }
 
 int init()
 {
-    auto ps = pubsub::getInstance();
-    return ps->init();
+   return pubsub::getInstance().init();
+    //return ps.init();
 }
 
 int pub()
 {
-    auto ps = pubsub::getInstance();
-    return ps->pub();;
+    return pubsub::getInstance().pub();
+    //return ps.pub();
 }
 
 int sub()
 {
-    auto ps = pubsub::getInstance();
-    return ps->sub();
+    return pubsub::getInstance().sub();
+    //return ps.sub();
 }
 
 int pubsub::initLog()
@@ -108,7 +108,7 @@ void handle_pipe(int sig)
 {
     int ret = 0;
     LOG(WARNING)<<"sig is "<<sig<<" errno is "<<errno<<" :"<<strerror(errno);
-    ret =pubsub::getInstance()->initTcpClient();
+    ret =pubsub::getInstance().initTcpClient();
     if (ret != 0)
     {
         LOG(WARNING)<<"initTcpClient error"<<"errno is "<<errno<<" :"<<strerror(errno);
@@ -294,6 +294,8 @@ int pubsub::sub()
 pubsub::pubsub()
 {
     udpPort = 10086;
+
+    printf("pubsub()\n");
 }
 
 pubsub::~pubsub()
@@ -301,11 +303,12 @@ pubsub::~pubsub()
     pthread_join(recvThread, nullptr);
     pthread_join(heartBeatThread, nullptr);
     pthread_join(sendThread, nullptr);
-    delete instance;
+    //delete instance;
 }
 
-pubsub* pubsub::getInstance()
+pubsub& pubsub::getInstance()
 {
+    static pubsub instance;
     return instance;
 }
 

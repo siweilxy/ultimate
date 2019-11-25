@@ -14,7 +14,7 @@ void* test(void*)
        // ERROR("%s", "error");
         //WARN("%s", "warn");
         sleep(1);
-        WARN("pthrad_self:%d",pthread_self());
+        WARN("pthread_self:%d",pthread_self());
 
     }
 }

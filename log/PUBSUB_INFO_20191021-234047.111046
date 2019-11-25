@@ -1,9 +1,0 @@
-Log file created at: 2019/10/21 23:40:47
-Running on machine: siwei
-Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
-I1021 23:40:47.865804 111046 pubsub.cpp:100] INFO log path is /home/siwei/github/ultimate/log/PUBSUB_INFO
-W1021 23:40:47.865968 111046 pubsub.cpp:101] WARNING log path is /home/siwei/github/ultimate/log/PUBSUB_WARNING
-E1021 23:40:47.866009 111046 pubsub.cpp:102] ERROR log path is /home/siwei/github/ultimate/log/PUBSUB_ERROR
-W1021 23:40:47.866073 111046 pubsub.cpp:155] bind success ,port is 10086
-W1021 23:40:47.866168 111046 pubsub.cpp:182] connect error,errno is 111 :Connection refused
-F1021 23:40:47.866210 111046 pubsub.cpp:163] initTcpClient error

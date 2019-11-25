@@ -15,6 +15,7 @@ int main()
     {
         printf("init error");
     }
+
     pub();
     while(1){sleep(1);}
     return 0;
